@@ -9,15 +9,12 @@ FileList=hello world1.c
 Type=4
 [mru-list]
 1=hello world1.c
-[Units]
-Count=1
-1=hello world1 (main)
 
 [defines]
-buildcount=1
+buildcount=3
 
 [ProjectLog]
-Days=3
+Days=4
 D1=11-01-2018
 D1_L=3
 D1_L1=[57415]Project Closed.
@@ -33,6 +30,19 @@ D3=24-01-2018
 D3_L=2
 D3_L1=[54771]Project Opened.
 D3_L2=[54791]Project Closed.
+D4=13-02-2018
+D4_L=3
+D4_L1=[71502]Project Opened.
+D4_L2=[71557]Started Editing.
+D4_L3=[71983]Project Closed.
 
 [fileformats]
 forcecoff=0
+
+[Opened Files]
+1=hello world1.c
+t1=22
+Count=1
+[Units]
+Count=1
+1=hello world1 (main)

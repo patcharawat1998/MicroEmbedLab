@@ -1,0 +1,7 @@
+юд1
+   юдmain  0/89  Ram=3
+      цд@cinit1  (Inline)  Ram=0
+      цд@PSTRINGCN7_9600_62_63  0/91  Ram=5
+      юд@PRINTF_U_9600_62_63  0/58  Ram=2
+         цд@DIV88  0/21  Ram=3
+         юд@DIV88  0/21  Ram=3

@@ -1,3 +1,8 @@
 ÀÄhello world1
-   ÀÄmain  0/66  Ram=2
-      ÀÄ@cinit1  (Inline)  Ram=0
+   ÀÄmain  0/76  Ram=2
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@PSTRINGCN7_9600_62_63  0/91  Ram=5
+      ÃÄ@PRINTF_U_9600_62_63  0/58  Ram=2
+      ³  ÃÄ@DIV88  0/21  Ram=3
+      ³  ÀÄ@DIV88  0/21  Ram=3
+      ÀÄ@delay_ms1  0/22  Ram=1

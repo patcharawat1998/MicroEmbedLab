@@ -7,7 +7,18 @@
 01B     CCP_2
 01C     CCP_2_HIGH
 021     main.i
-022     main.x
+022     main.@SCRATCH1
+023     @PSTRINGCN7_9600_62_63.P1
+023     @delay_ms1.P2
+023     @PRINTF_U_9600_62_63.P3
+024     @PRINTF_U_9600_62_63.P1
+024     @PSTRINGCN7_9600_62_63.@SCRATCH1
+025     @DIV88.P1
+025     @PSTRINGCN7_9600_62_63.@SCRATCH2
+026     @DIV88.P1
+026     @PSTRINGCN7_9600_62_63.@SCRATCH3
+027     @PSTRINGCN7_9600_62_63.@SCRATCH4
+027     @DIV88.@SCRATCH1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -19,21 +30,26 @@
 10D-10E @WRITE_PROGRAM_MEMORY8.P2
 
 ROM Allocation:
-000004  main
-000004  @cinit1
-000025  @cinit2
+000004  @const604.call
+00000E  @PSTRINGCN7_9600_62_63
+000069  @DIV88
+00007E  @PRINTF_U_9600_62_63
+0000B8  @delay_ms1
+0000CE  main
+0000CE  @cinit1
+0000EF  @cinit2
 
 Project Directory:
-    C:\Users\DONUT\Desktop\New folder\
+    K:\Github\MicroEmbedLab\Lab1\
 
 Project Files:
-    hello world1.c                                          [11-Á.¤.-18 15:56  CRC=79CFEBD9]
-    ..\..\..\..\Program Files (x86)\PICC\Devices\16F886.h   [21-¡.¤.-17 13:41  CRC=7107D019]
+    hello world1.c                                          [13-Feb-18 19:56  CRC=34380B2F]
+    C:\Program Files (x86)\PICC\Devices\16F886.h            [21-Jul-17 13:41  CRC=7107D019]
 
-Source signature=5BDF8C0B
+Source signature=1647AB61
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=6451
+Hex file CRC=94B3
 
 Units:
     hello world1 (main)

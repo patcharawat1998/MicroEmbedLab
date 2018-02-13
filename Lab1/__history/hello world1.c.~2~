@@ -29,7 +29,7 @@ void main()
 
    while(1) {
       printf("hello world - %u\r\n", i++);
-      output_toggle(PIN_B5);
+      output_toggle(PIN_B6);
       delay_ms(1000);
       
    }

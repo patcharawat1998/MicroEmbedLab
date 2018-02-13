@@ -24,13 +24,24 @@
 
 void main()
 {
-
-   int i=0;
+   int1 pushed=false;
+   int i=1;
 
    while(1) {
-      printf("hello world - %u\r\n", i++);
-      output_toggle(PIN_B5);
-      delay_ms(1000);
+      
+       if (!input(PIN_B7)) {   
+        // actions for logic high
+        output_high(PIN_B5);
+        if(!pushed && !input(PIN_B7)){
+          printf("Push - %u\r\n", i++);
+          pushed=true;
+        }
+      } else {
+       // actions for logic low
+       pushed=false;
+       output_low(PIN_B5);
+      }
+      
       
    }
 
