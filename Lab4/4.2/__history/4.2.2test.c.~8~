@@ -65,16 +65,16 @@ void main()
       
       
          
-         if(!input(PIN_B7)){//switch
-         
-            output_toggle(PIN_B5);//light
-            while(!input(PIN_B7)){
-            delay_ms(1);
-            }
-         
-         }
-      
-         delay_ms(1);
+//!         if(!input(PIN_B7)){//switch
+//!         
+//!            output_toggle(PIN_B5);//light
+//!            while(!input(PIN_B7)){
+//!            delay_ms(1);
+//!            }
+//!         
+//!         }
+//!      
+//!         delay_ms(1);
 
    }
 

@@ -14,7 +14,7 @@ Stack size: 8
 Lines Stmts  %   Files
 ----- ----- ---  -----
    83    18 100  4.2.2test.c
-  761     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F886.h
+  761     0   0  C:\Program Files (x86)\PICC\Devices\16F886.h
 ----- -----
   844    18 Total
 

@@ -14,12 +14,16 @@ Type=4
 buildcount=2
 
 [ProjectLog]
-Days=1
+Days=2
 D1=13-02-2018
 D1_L=3
 D1_L1=[72656]Project Closed.
 D1_L2=[73645]Project Opened.
 D1_L3=[73650]Project Closed.
+D2=14-02-2018
+D2_L=2
+D2_L1=[656]Project Opened.
+D2_L2=[656]Project Closed.
 
 [fileformats]
 forcecoff=0

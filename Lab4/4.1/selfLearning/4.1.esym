@@ -1,10 +1,10 @@
-C L "MAIN" 0 23 7 "FUNCTION"
-D G "__PCM__" 0 84 ""5.074""
-D G "__DEVICE__" 0 84 "886"
-D G "__DATE__" 0 84 ""14-Feb-18""
-D G "__TIME__" 0 84 ""00:26:59""
-D G "_UNICODE" 0 84 ""?""
-D G "__EVAL" 0 84 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
+D G "RUN_BUTTON" 0 23 "PIN_B7"
+D G "__PCM__" 0 25 ""5.074""
+D G "__DEVICE__" 0 25 "886"
+D G "__DATE__" 0 25 ""14-Feb-18""
+D G "__TIME__" 0 25 ""00:30:19""
+D G "_UNICODE" 0 25 ""?""
+D G "__EVAL" 0 25 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1092,15 +1092,13 @@ d G "INT_RB4" 1 755 "0x1100B08"
 d G "INT_RB5" 1 756 "0x1200B08"
 d G "INT_RB6" 1 757 "0x1400B08"
 d G "INT_RB7" 1 758 "0x1800B08"
-C L "jump_to_isr" 0 23 5 "FUNCTION"
-V G "counter" 0 34 "int8" `600 
-F N "timer1_isr" 0 37 ""
-F G "timer1_isr" 0 37 "void()" `601 
-C L "timer1_isr" 0 23 3 "FUNCTION"
-F N "MAIN" 0 54 ""
-F G "MAIN" 0 55 "void()" `602 
-C L "MAIN" 0 23 1 "FUNCTION"
-C L "MAIN" 0 23 1 "FUNCTION"
+D G "RUN_BUTTON" 0 23 "PIN_B7"
+V G "counter" 0 25 "int8" `600 
+F N "timer1_isr" 0 29 ""
+F G "timer1_isr" 0 29 "void()" `601 
+C L "timer1_isr" 0 30 1 "FUNCTION"
+F N "MAIN" 0 39 ""
+F G "MAIN" 0 40 "void()" `602 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0

@@ -11,10 +11,10 @@ Type=4
 1=4.2.2test.c
 
 [defines]
-buildcount=2
+buildcount=8
 
 [ProjectLog]
-Days=1
+Days=2
 D1=07-02-2018
 D1_L=8
 D1_L1=[51023]Started Editing.
@@ -25,16 +25,32 @@ D1_L5=[52042]Started Editing.
 D1_L6=[52076]Project Closed.
 D1_L7=[58449]Project Opened.
 D1_L8=[58449]Project Closed.
+D2=14-02-2018
+D2_L=4
+D2_L1=[1457]Project Opened.
+D2_L2=[1553]Started Editing.
+D2_L3=[1647]Stopped Editing.
+TotalEdit=2
+TotalDebug=0
+D2_E=2
+D2_D=0
+D2_L4=[1647]Project Closed.
 
 [Opened Files]
-1=4.2.2test.c
-t1=34
-2=4.2.3test.c
-t2=34
-Count=2
-[Units]
-Count=1
-1=4.2.2test (main)
+1=..\..\Lab1\1.2.2.c
+t1=11
+2=..\..\Lab1\1.2.3.c
+t2=17
+Count=5
+3=..\4.1\selfLearning\4.1.c
+t3=20
+4=4.2.1test.c
+t4=25
+5=4.2.2test.c
+t5=25
 
 [fileformats]
 forcecoff=0
+[Units]
+Count=1
+1=4.2.2test (main)

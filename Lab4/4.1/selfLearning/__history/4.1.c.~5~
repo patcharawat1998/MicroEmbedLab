@@ -20,63 +20,27 @@
 
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
 
-//#define RUN_BUTTON   PIN_B7
+#define RUN_BUTTON   PIN_B7
 
-
-
-/*#INT_TIMER1
-void timer1_isr() {
-   set_timer1(65036); // re-set the timer1 counter to maintain a stable period
-   
-
-}*/
-
-int counter = 0;
+int counter=0;
+int i=1;
 
 #INT_TIMER1
-void timer1_isr(void) {
-set_timer1(3036);
-
-if(++counter >= 4){
-
-   output_toggle(PIN_B5);//light
+void timer1_isr() {
+   set_timer1(3036); // re-set the timer1 counter to maintain a stable period
+   counter++;
+   if(++counter>=4){
+     output_toggle(PIN_B5);
+     counter=0;
+   }
    
-//!   if (input(PIN_B6)) {  output_low(PIN_B6); }
-//!else { output_high(PIN_B6);}
-   
-   counter = 0;
 }
-
-}
-
-
 
 void main()
 {
-   
    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);
    set_timer1(3036);
    enable_interrupts(INT_TIMER1);
    enable_interrupts(GLOBAL);
-      
-   
-
-   while(1) {
-      
-      
-         
-         if(!input(PIN_B7)){//switch
-         
-            output_toggle(PIN_B5);//light
-            while(!input(PIN_B7)){
-            delay_ms(1);
-            }
-         
-         }
-      
-         delay_ms(1);
-
-   }
-
-
 }
+

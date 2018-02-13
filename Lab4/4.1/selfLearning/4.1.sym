@@ -14,7 +14,6 @@
 025     @INTERRUPT_AREA
 026     @INTERRUPT_AREA
 027     counter
-028     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -24,8 +23,8 @@
 0FF     @INTERRUPT_AREA
 107.6   C1OUT
 108.6   C2OUT
-10D-10E @WRITE_PROGRAM_MEMORY8.P1
-10D-10E @READ_PROGRAM_MEMORY8.P2
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
 17F     @INTERRUPT_AREA
 1FF     @INTERRUPT_AREA
 27F     @INTERRUPT_AREA
@@ -91,25 +90,24 @@ FFF     @INTERRUPT_AREA
 
 ROM Allocation:
 000031  timer1_isr
-000045  @delay_ms1
-000059  MAIN
-000059  @cinit1
-00007B  @cinit2
+000045  MAIN
+000045  @cinit1
+000067  @cinit2
 
 Project Directory:
-    K:\Github\MicroEmbedLab\Lab4\4.2\
+    K:\Github\MicroEmbedLab\Lab4\4.1\selfLearning\
 
 Project Files:
-    4.2.2test.c                                             [14-Feb-18 00:27  CRC=7DE3472B]
+    4.1.c                                                   [14-Feb-18 00:30  CRC=DADEDA53]
     C:\Program Files (x86)\PICC\Devices\16F886.h            [21-Jul-17 13:41  CRC=7107D019]
 
-Source signature=5FF2E75D
+Source signature=BCEE7A85
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=E5E4
+Hex file CRC=B679
 
 Units:
-    4.2.2test (main)
+    4.1 (main)
 
 Compiler Settings:
     Processor:      PIC16F886
@@ -121,13 +119,13 @@ Compiler Settings:
     Compile Mode:       CCS5
 
 Output Files:
-    XREF file:   4.2.2test.xsym
-    Errors:      4.2.2test.err
-    Ext Symbols: 4.2.2test.esym
-    INHX8:       4.2.2test.hex
-    Symbols:     4.2.2test.sym
-    List:        4.2.2test.lst
-    Debug/COFF:  4.2.2test.cof
-    Project:     4.2.2test.ccspjt
-    Call Tree:   4.2.2test.tre
-    Statistics:  4.2.2test.STA
+    XREF file:   4.1.xsym
+    Errors:      4.1.err
+    Ext Symbols: 4.1.esym
+    INHX8:       4.1.hex
+    Symbols:     4.1.sym
+    List:        4.1.lst
+    Debug/COFF:  4.1.cof
+    Project:     4.1.ccspjt
+    Call Tree:   4.1.tre
+    Statistics:  4.1.STA
