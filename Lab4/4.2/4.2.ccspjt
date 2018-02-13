@@ -1,0 +1,28 @@
+[PROJECT]
+Target=4.2.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=4.2.c
+[4.2.c]
+Type=4
+[mru-list]
+1=4.2.c
+[Units]
+Count=1
+1=4.2 (main)
+
+[defines]
+buildcount=1
+
+[ProjectLog]
+Days=1
+D1=07-02-2018
+D1_L=2
+D1_L1=[48890]Stopped Editing.
+TotalEdit=1
+TotalDebug=0
+D1_E=1
+D1_D=0
+D1_L2=[48890]Project Closed.

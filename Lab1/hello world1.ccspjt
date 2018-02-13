@@ -1,0 +1,38 @@
+[PROJECT]
+Target=hello world1.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=hello world1.c
+[hello world1.c]
+Type=4
+[mru-list]
+1=hello world1.c
+[Units]
+Count=1
+1=hello world1 (main)
+
+[defines]
+buildcount=1
+
+[ProjectLog]
+Days=3
+D1=11-01-2018
+D1_L=3
+D1_L1=[57415]Project Closed.
+D1_L2=[80759]Project Opened.
+D1_L3=[82572]Project Closed.
+D2=18-01-2018
+D2_L=4
+D2_L1=[49875]Project Opened.
+D2_L2=[49878]Project Closed.
+D2_L3=[49892]Project Opened.
+D2_L4=[60580]Project Closed.
+D3=24-01-2018
+D3_L=2
+D3_L1=[54771]Project Opened.
+D3_L2=[54791]Project Closed.
+
+[fileformats]
+forcecoff=0

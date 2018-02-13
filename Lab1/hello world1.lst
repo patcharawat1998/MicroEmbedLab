@@ -1,0 +1,146 @@
+CCS PCM C Compiler, Version 5.074, 32906               11-Á.¤.-18 15:56
+
+               Filename:   C:\Users\DONUT\Desktop\New folder\hello world1.lst
+
+               ROM used:   70 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   7 (2%) at main() level
+                           7 (2%) worst case
+               Stack used: 0 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   004
+0003:  NOP
+....................  
+.................... #include <16F886.h> 
+.................... //////////// Standard Header file for the PIC16F886 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F886 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 *=16 
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES PUT                      //Power Up Timer 
+.................... #FUSES NOMCLR                   //Master Clear pin not enabled 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES BROWNOUT                 //Brownout reset 
+.................... #FUSES IESO                     //Internal External SWITCH Over mode enabled 
+.................... #FUSES FCMEN                    //Fail-safe clock monitor enabled 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used FOR I/O 
+.................... #FUSES NODEBUG                  //No Debug mode FOR ICD 
+.................... #FUSES NOWRT                    //Program memory not write protected 
+.................... #FUSES BORV40                   //Brownout reset at 4.0V 
+.................... #FUSES RESERVED                 //Used to set the reserved FUSE bits 
+.................... #FUSES INTRC_IO  
+.................... #use delay(clock=8M) 
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+.................... #define RUN_BUTTON   PIN_B7 
+....................  
+.................... void main() 
+0004:  MOVF   03,W
+0005:  ANDLW  1F
+0006:  MOVWF  03
+0007:  MOVLW  71
+0008:  BSF    03.5
+0009:  MOVWF  0F
+000A:  CLRF   10
+000B:  MOVF   0F,W
+000C:  BSF    03.6
+000D:  BCF    07.3
+000E:  MOVLW  0C
+000F:  BCF    03.6
+0010:  MOVWF  19
+0011:  MOVLW  A2
+0012:  MOVWF  18
+0013:  MOVLW  90
+0014:  BCF    03.5
+0015:  MOVWF  18
+0016:  BSF    03.5
+0017:  BSF    03.6
+0018:  MOVF   09,W
+0019:  ANDLW  C0
+001A:  MOVWF  09
+001B:  BCF    03.6
+001C:  BCF    1F.4
+001D:  BCF    1F.5
+001E:  MOVLW  00
+001F:  BSF    03.6
+0020:  MOVWF  08
+0021:  BCF    03.5
+0022:  CLRF   07
+0023:  CLRF   08
+0024:  CLRF   09
+0025:  BCF    03.7
+0026:  BCF    03.6
+0027:  CLRF   21
+0028:  CLRF   22
+.................... { 
+....................    INT i = 0; 
+....................    INT x = 0; 
+....................  
+....................    WHILE (1) 
+....................    { 
+....................       // ! printf ("hello world - % u\r\n", i++); 
+....................       // ! output_toggle (PIN_B6); 
+....................       // ! delay_ms (1000); 
+....................  
+....................       IF (!input (PIN_B7)) 
+0029:  BSF    03.5
+002A:  BSF    06.7
+002B:  BCF    03.5
+002C:  BTFSC  06.7
+002D:  GOTO   03D
+....................       { 
+....................          // actions FOR logic high 
+....................          output_high (PIN_B6); 
+002E:  BSF    03.5
+002F:  BCF    06.6
+0030:  BCF    03.5
+0031:  BSF    06.6
+....................          i++; 
+0032:  INCF   21,F
+....................          printf ("i\n"); 
+0033:  MOVLW  69
+0034:  BTFSS  0C.4
+0035:  GOTO   034
+0036:  MOVWF  19
+0037:  MOVLW  0A
+0038:  BTFSS  0C.4
+0039:  GOTO   038
+003A:  MOVWF  19
+....................          x = 0; 
+003B:  CLRF   22
+....................          } ELSE IF (x == 0){ 
+003C:  GOTO   044
+003D:  MOVF   22,F
+003E:  BTFSS  03.2
+003F:  GOTO   044
+....................          // actions FOR logic low 
+....................          output_low (PIN_B6); 
+0040:  BSF    03.5
+0041:  BCF    06.6
+0042:  BCF    03.5
+0043:  BCF    06.6
+....................       } 
+0044:  GOTO   029
+....................    } 
+.................... } 
+....................  
+0045:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FC4   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

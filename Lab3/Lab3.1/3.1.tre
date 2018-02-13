@@ -1,0 +1,17 @@
+ÀÄLab3
+   ÀÄMAIN  0/83  Ram=1
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄ@delay_ms1  0/20  Ram=1
+      ÃÄwriteOneByteToAddress  0/22  Ram=2
+      ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
+      ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
+      ³  ÀÄ@I2C_WRITEU_1  0/16  Ram=1
+      ÃÄReadOneBytefromAddress  0/50  Ram=2
+      ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
+      ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
+      ³  ÃÄ@I2C_WRITEU_1  0/16  Ram=1
+      ³  ÃÄ@delay_ms1  0/20  Ram=1
+      ³  ÀÄ@I2C_READU_1  (Inline)  Ram=1
+      ÀÄ@PRINTF_D_9600_62_63  0/93  Ram=6
+         ÃÄ@DIV88  0/21  Ram=3
+         ÀÄ@DIV88  0/21  Ram=3

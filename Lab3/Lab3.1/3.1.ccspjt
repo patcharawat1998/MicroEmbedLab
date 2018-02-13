@@ -1,0 +1,23 @@
+[PROJECT]
+Target=3.1.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=3.1.c
+[3.1.c]
+Type=4
+[mru-list]
+1=3.1.c
+[Units]
+Count=1
+1=3.1 (main)
+
+[defines]
+buildcount=1
+
+[ProjectLog]
+Days=1
+D1=25-01-2018
+D1_L=1
+D1_L1=[77741]Project Closed.

@@ -1,0 +1,22 @@
+>>> Warning 203 "4.2.3test.c" Line 99(1,1): Condition always TRUE
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 103(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "4.2.3test.c" Line 110(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 202 "4.2.3test.c" Line 28(17,20): Variable never used:   CSH
+>>> Warning 202 "4.2.3test.c" Line 28(39,41): Variable never used:   EB
+>>> Warning 202 "4.2.3test.c" Line 28(70,73): Variable never used:   FSH
+>>> Warning 202 "4.2.3test.c" Line 28(92,95): Variable never used:   GSH
+>>> Warning 202 "4.2.3test.c" Line 28(114,116): Variable never used:   Bb
+>>> Warning 202 "4.2.3test.c" Line 28(125,126): Variable never used:   B
+      Memory usage:   ROM=9%      RAM=35% - 35%
+      0 Errors,  19 Warnings.
+Build Successful.

@@ -1,0 +1,126 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-028 deviceRegister
+029-02A @sprintf_string
+02B     MAIN.sec
+02C     MAIN.min
+02D     MAIN.hour
+02E     MAIN.date
+02F-033 MAIN.nameDay
+034     MAIN.day
+035     MAIN.month
+036     ReadNBytedfromAddress.registerAddress
+036     @PSTRINGCN7_9600_62_63.P1
+036     @PRINTF_U_9600_62_63.P2
+036     MAIN.@SCRATCH1
+036     @PSTRINGR_9600_62_63.@SCRATCH1
+037     @PRINTF_U_9600_62_63.P1
+037     ReadNBytedfromAddress.N
+037     MAIN.@SCRATCH2
+037     @PSTRINGR_9600_62_63.@SCRATCH2
+037     @PSTRINGCN7_9600_62_63.@SCRATCH1
+038     @DIV88.P1
+038-039 @MUL1616.P2
+038     @MUL88.P3
+038     ReadNBytedfromAddress.i
+038     writeOneByteToAddress.registerAddress
+038     @PSTRINGCN7_9600_62_63.@SCRATCH2
+039     @DIV88.P1
+039     @MUL88.P2
+039     @delay_ms1.P3
+039-03A writeOneByteToAddress.value
+039     ReadNBytedfromAddress.@SCRATCH1
+039     @PSTRINGCN7_9600_62_63.@SCRATCH3
+03A-03B @MUL1616.P1
+03A     ReadNBytedfromAddress.@SCRATCH2
+03A     @DIV88.@SCRATCH1
+03A     @PSTRINGCN7_9600_62_63.@SCRATCH4
+03B     @I2C_READU_1.P1
+03B     writeOneByteToAddress.@SCRATCH1
+03C     writeOneByteToAddress.@SCRATCH2
+03C     @MUL1616.@SCRATCH1
+03D     @I2C_WRITEU_1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @const629.call
+00000C  @const630.call
+000014  @const631.call
+00001C  @const632.call
+000024  @const633.call
+00002C  @const634.call
+000034  @const635.call
+00003C  @const637.call
+00004A  @const650.call
+000058  @const651.call
+000066  @const652.call
+000073  @const653.call
+000081  @const654.call
+00008E  @const655.call
+00009B  @const656.call
+0000A8  @delay_ms1
+0000BC  @I2C_WRITEU_1
+0000CC  @I2C_READU_1
+0000DC  ReadNBytedfromAddress
+000113  @MUL88
+000138  @DIV88
+00014D  @PRINTF_U_9600_62_63
+000185  @PSTRINGR_9600_62_63
+00019C  @PSTRINGCN7_9600_62_63
+0001F5  @MUL1616
+00020C  writeOneByteToAddress
+00022B  @cinit1
+00022B  MAIN
+000262  @cinit2
+0005AD  @goto43164
+
+Project Directory:
+    C:\Users\DONUT\Desktop\EMbedLab\Lab3\Lab3.2\Test\
+
+Project Files:
+    T3.2.c                                                  [31-Á.¤.-18 22:41  CRC=A58E6BA2]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F886.h [21-¡.¤.-17 13:41  CRC=7107D019]
+
+Source signature=879E0BD4
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=0BC6
+
+Units:
+    T3.2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F886
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   T3.2.xsym
+    Errors:      T3.2.err
+    Ext Symbols: T3.2.esym
+    INHX8:       T3.2.hex
+    Symbols:     T3.2.sym
+    List:        T3.2.lst
+    Debug/COFF:  T3.2.cof
+    Project:     T3.2.ccspjt
+    Call Tree:   T3.2.tre
+    Statistics:  T3.2.STA

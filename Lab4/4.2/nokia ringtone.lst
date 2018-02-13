@@ -1,0 +1,480 @@
+CCS PCM C Compiler, Version 5.074, 32906               07-Feb-18 15:51
+
+               Filename:   C:\Users\DONUT\Desktop\2_2560_Work\EMbedLab\Lab4\4.2\nokia ringtone.lst
+
+               ROM used:   364 words (4%)
+                           Largest free fragment is 2048
+               RAM used:   74 (20%) at main() level
+                           76 (21%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   05E
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.0
+001A:  GOTO   01D
+001B:  BTFSC  0C.0
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   031
+.................... #include <16F886.h> 
+.................... //////////// Standard Header file for the PIC16F886 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F886 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 *=16 
+....................  
+.................... #FUSES NOWDT //No Watch Dog Timer 
+.................... #FUSES PUT //Power Up Timer 
+.................... #FUSES NOMCLR //Master Clear pin not enabled 
+.................... #FUSES NOPROTECT //Code not protected from reading 
+.................... #FUSES NOCPD //No EE protection 
+.................... #FUSES BROWNOUT //Brownout reset 
+.................... #FUSES IESO //Internal External Switch Over mode enabled 
+.................... #FUSES FCMEN //Fail-safe clock monitor enabled 
+.................... #FUSES NOLVP //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NODEBUG //No Debug mode for ICD 
+.................... #FUSES NOWRT //Program memory not write protected 
+.................... #FUSES BORV40 //Brodddddwnout reset at 4.0V 
+.................... #FUSES RESERVED //Used to set the reserved FUSE bits 
+.................... #FUSES INTRC_IO  
+....................  
+.................... #use delay(clock=8M) 
+*
+004A:  MOVLW  64
+004B:  MOVWF  04
+004C:  BCF    03.7
+004D:  MOVF   00,W
+004E:  BTFSC  03.2
+004F:  GOTO   05D
+0050:  MOVLW  02
+0051:  MOVWF  78
+0052:  CLRF   77
+0053:  DECFSZ 77,F
+0054:  GOTO   053
+0055:  DECFSZ 78,F
+0056:  GOTO   052
+0057:  MOVLW  97
+0058:  MOVWF  77
+0059:  DECFSZ 77,F
+005A:  GOTO   059
+005B:  DECFSZ 00,F
+005C:  GOTO   050
+005D:  RETURN
+....................  
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+.................... #use i2c(MASTER, I2C1, FORCE_HW) // configure the i2c port 
+.................... #define SLAVE_ADDRESS  0xB0 
+....................  
+....................  
+....................  
+.................... int16 C = 65298,CSH = 65311,D = 65324,EB = 65336,E = 65347,F = 65358,FSH = 65199,G = 65377,GSH = 65236,A = 65394,Bb = 65402,B = 65283,DT = 65111,ET = 65157,AT = 65252,CSHT = 65086; 
+.................... int16 note[13]; 
+....................  
+....................  
+....................  
+.................... int count_note = 1 ; 
+....................  
+.................... #INT_TIMER1 
+.................... void timer1_isr() { 
+....................  
+.................... set_timer1(note[count_note]); // ?????????????? ISR ???? ????????????????????? 
+*
+0031:  BCF    03.0
+0032:  RLF    62,W
+0033:  ADDLW  48
+0034:  MOVWF  04
+0035:  BCF    03.7
+0036:  INCF   04,F
+0037:  MOVF   00,W
+0038:  MOVWF  66
+0039:  DECF   04,F
+003A:  MOVF   00,W
+003B:  MOVWF  65
+003C:  CLRF   0E
+003D:  MOVF   66,W
+003E:  MOVWF  0F
+003F:  MOVF   65,W
+0040:  MOVWF  0E
+....................  
+.................... //if (input(PIN_B5)) {  output_low(PIN_B5); } 
+.................... //else { output_high(PIN_B5);} 
+.................... output_toggle(PIN_B4); 
+0041:  BSF    03.5
+0042:  BCF    06.4
+0043:  MOVLW  10
+0044:  BCF    03.5
+0045:  XORWF  06,F
+0046:  BCF    0C.0
+0047:  BCF    0A.3
+0048:  BCF    0A.4
+0049:  GOTO   01D
+.................... } 
+....................  
+....................  
+.................... void main() { 
+*
+005E:  MOVF   03,W
+005F:  ANDLW  1F
+0060:  MOVWF  03
+0061:  MOVLW  71
+0062:  BSF    03.5
+0063:  MOVWF  0F
+0064:  CLRF   10
+0065:  MOVF   0F,W
+0066:  BSF    03.6
+0067:  BCF    07.3
+0068:  MOVLW  0C
+0069:  BCF    03.6
+006A:  MOVWF  19
+006B:  MOVLW  A2
+006C:  MOVWF  18
+006D:  MOVLW  90
+006E:  BCF    03.5
+006F:  MOVWF  18
+0070:  MOVLW  FF
+0071:  MOVWF  27
+0072:  BSF    27.3
+0073:  MOVF   27,W
+0074:  BSF    03.5
+0075:  MOVWF  07
+0076:  BCF    03.5
+0077:  BSF    27.4
+0078:  MOVF   27,W
+0079:  BSF    03.5
+007A:  MOVWF  07
+007B:  MOVLW  13
+007C:  MOVWF  13
+007D:  MOVLW  28
+007E:  BCF    03.5
+007F:  MOVWF  14
+0080:  BSF    03.5
+0081:  BSF    14.7
+0082:  BCF    14.6
+0083:  MOVLW  FF
+0084:  BCF    03.5
+0085:  MOVWF  29
+0086:  MOVLW  12
+0087:  MOVWF  28
+0088:  MOVLW  FF
+0089:  MOVWF  2B
+008A:  MOVLW  1F
+008B:  MOVWF  2A
+008C:  MOVLW  FF
+008D:  MOVWF  2D
+008E:  MOVLW  2C
+008F:  MOVWF  2C
+0090:  MOVLW  FF
+0091:  MOVWF  2F
+0092:  MOVLW  38
+0093:  MOVWF  2E
+0094:  MOVLW  FF
+0095:  MOVWF  31
+0096:  MOVLW  43
+0097:  MOVWF  30
+0098:  MOVLW  FF
+0099:  MOVWF  33
+009A:  MOVLW  4E
+009B:  MOVWF  32
+009C:  MOVLW  FE
+009D:  MOVWF  35
+009E:  MOVLW  AF
+009F:  MOVWF  34
+00A0:  MOVLW  FF
+00A1:  MOVWF  37
+00A2:  MOVLW  61
+00A3:  MOVWF  36
+00A4:  MOVLW  FE
+00A5:  MOVWF  39
+00A6:  MOVLW  D4
+00A7:  MOVWF  38
+00A8:  MOVLW  FF
+00A9:  MOVWF  3B
+00AA:  MOVLW  72
+00AB:  MOVWF  3A
+00AC:  MOVLW  FF
+00AD:  MOVWF  3D
+00AE:  MOVLW  7A
+00AF:  MOVWF  3C
+00B0:  MOVLW  FF
+00B1:  MOVWF  3F
+00B2:  MOVLW  03
+00B3:  MOVWF  3E
+00B4:  MOVLW  FE
+00B5:  MOVWF  41
+00B6:  MOVLW  57
+00B7:  MOVWF  40
+00B8:  MOVLW  FE
+00B9:  MOVWF  43
+00BA:  MOVLW  85
+00BB:  MOVWF  42
+00BC:  MOVLW  FE
+00BD:  MOVWF  45
+00BE:  MOVLW  E4
+00BF:  MOVWF  44
+00C0:  MOVLW  FE
+00C1:  MOVWF  47
+00C2:  MOVLW  3E
+00C3:  MOVWF  46
+00C4:  MOVLW  01
+00C5:  MOVWF  62
+00C6:  BSF    03.5
+00C7:  BSF    03.6
+00C8:  MOVF   09,W
+00C9:  ANDLW  C0
+00CA:  MOVWF  09
+00CB:  BCF    03.6
+00CC:  BCF    1F.4
+00CD:  BCF    1F.5
+00CE:  MOVLW  00
+00CF:  BSF    03.6
+00D0:  MOVWF  08
+00D1:  BCF    03.5
+00D2:  CLRF   07
+00D3:  CLRF   08
+00D4:  CLRF   09
+00D5:  BCF    03.7
+....................  
+....................    note[1] = E; 
+00D6:  BCF    03.6
+00D7:  MOVF   31,W
+00D8:  MOVWF  4B
+00D9:  MOVF   30,W
+00DA:  MOVWF  4A
+.................... note[2] = D; 
+00DB:  MOVF   2D,W
+00DC:  MOVWF  4D
+00DD:  MOVF   2C,W
+00DE:  MOVWF  4C
+.................... note[3] = FSH; 
+00DF:  MOVF   35,W
+00E0:  MOVWF  4F
+00E1:  MOVF   34,W
+00E2:  MOVWF  4E
+.................... note[4] = GSH; 
+00E3:  MOVF   39,W
+00E4:  MOVWF  51
+00E5:  MOVF   38,W
+00E6:  MOVWF  50
+.................... note[5] = CSH; 
+00E7:  MOVF   2B,W
+00E8:  MOVWF  53
+00E9:  MOVF   2A,W
+00EA:  MOVWF  52
+.................... note[6] = B; 
+00EB:  MOVF   3F,W
+00EC:  MOVWF  55
+00ED:  MOVF   3E,W
+00EE:  MOVWF  54
+.................... note[7] = DT; 
+00EF:  MOVF   41,W
+00F0:  MOVWF  57
+00F1:  MOVF   40,W
+00F2:  MOVWF  56
+.................... note[8] = ET; 
+00F3:  MOVF   43,W
+00F4:  MOVWF  59
+00F5:  MOVF   42,W
+00F6:  MOVWF  58
+.................... note[9] = B; 
+00F7:  MOVF   3F,W
+00F8:  MOVWF  5B
+00F9:  MOVF   3E,W
+00FA:  MOVWF  5A
+.................... note[10] = AT; 
+00FB:  MOVF   45,W
+00FC:  MOVWF  5D
+00FD:  MOVF   44,W
+00FE:  MOVWF  5C
+.................... note[11] = CSH; 
+00FF:  MOVF   2B,W
+0100:  MOVWF  5F
+0101:  MOVF   2A,W
+0102:  MOVWF  5E
+.................... note[12] = E; 
+0103:  MOVF   31,W
+0104:  MOVWF  61
+0105:  MOVF   30,W
+0106:  MOVWF  60
+.................... note[13] = A; 
+0107:  MOVF   3B,W
+0108:  MOVWF  63
+0109:  MOVF   3A,W
+010A:  MOVWF  62
+....................  
+....................  
+....................    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
+010B:  MOVLW  35
+010C:  MOVWF  10
+....................    set_timer1(note[1]);  
+010D:  CLRF   0E
+010E:  MOVF   4B,W
+010F:  MOVWF  0F
+0110:  MOVF   4A,W
+0111:  MOVWF  0E
+....................    delay_ms(500); 
+0112:  MOVLW  02
+0113:  MOVWF  63
+0114:  MOVLW  FA
+0115:  MOVWF  64
+0116:  CALL   04A
+0117:  DECFSZ 63,F
+0118:  GOTO   114
+....................    count_note++; 
+0119:  INCF   62,F
+....................    enable_interrupts(INT_TIMER1); 
+011A:  BSF    03.5
+011B:  BSF    0C.0
+....................    enable_interrupts(GLOBAL); 
+011C:  MOVLW  C0
+011D:  BCF    03.5
+011E:  IORWF  0B,F
+....................     
+....................    while (1) { 
+....................     
+....................       set_timer1(note[count_note]); 
+011F:  BCF    03.0
+0120:  RLF    62,W
+0121:  ADDLW  48
+0122:  MOVWF  04
+0123:  BCF    03.7
+0124:  INCF   04,F
+0125:  MOVF   00,W
+0126:  MOVWF  64
+0127:  DECF   04,F
+0128:  MOVF   00,W
+0129:  MOVWF  63
+012A:  CLRF   0E
+012B:  MOVF   64,W
+012C:  MOVWF  0F
+012D:  MOVF   63,W
+012E:  MOVWF  0E
+....................       delay_ms(200); 
+012F:  MOVLW  C8
+0130:  MOVWF  64
+0131:  CALL   04A
+....................        
+....................       if(count_note==4|count_note==8|count_note==11|count_note == 12|count_note==13) { 
+0132:  MOVF   62,W
+0133:  SUBLW  04
+0134:  BTFSC  03.2
+0135:  GOTO   138
+0136:  MOVLW  00
+0137:  GOTO   139
+0138:  MOVLW  01
+0139:  MOVWF  63
+013A:  MOVF   62,W
+013B:  SUBLW  08
+013C:  BTFSC  03.2
+013D:  GOTO   140
+013E:  MOVLW  00
+013F:  GOTO   141
+0140:  MOVLW  01
+0141:  IORWF  63,F
+0142:  MOVF   62,W
+0143:  SUBLW  0B
+0144:  BTFSC  03.2
+0145:  GOTO   148
+0146:  MOVLW  00
+0147:  GOTO   149
+0148:  MOVLW  01
+0149:  IORWF  63,F
+014A:  MOVF   62,W
+014B:  SUBLW  0C
+014C:  BTFSC  03.2
+014D:  GOTO   150
+014E:  MOVLW  00
+014F:  GOTO   151
+0150:  MOVLW  01
+0151:  IORWF  63,F
+0152:  MOVF   62,W
+0153:  SUBLW  0D
+0154:  BTFSC  03.2
+0155:  GOTO   158
+0156:  MOVLW  00
+0157:  GOTO   159
+0158:  MOVLW  01
+0159:  IORWF  63,W
+015A:  BTFSC  03.2
+015B:  GOTO   163
+....................       delay_ms(500); 
+015C:  MOVLW  02
+015D:  MOVWF  63
+015E:  MOVLW  FA
+015F:  MOVWF  64
+0160:  CALL   04A
+0161:  DECFSZ 63,F
+0162:  GOTO   15E
+....................       } 
+....................       if(count_note==13)count_note=1; 
+0163:  MOVF   62,W
+0164:  SUBLW  0D
+0165:  BTFSS  03.2
+0166:  GOTO   169
+0167:  MOVLW  01
+0168:  MOVWF  62
+....................       count_note++; 
+0169:  INCF   62,F
+016A:  GOTO   11F
+....................    } 
+....................     
+....................     
+.................... } 
+016B:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FC4   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

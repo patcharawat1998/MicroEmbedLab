@@ -1,0 +1,83 @@
+[PROJECT]
+Target=T3.1.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=T3.1.c
+[T3.1.c]
+Type=4
+[mru-list]
+1=T3.1.c
+
+[defines]
+buildcount=31
+
+[Opened Files]
+1=..\..\Lab3.2\3.2.c
+t1=76
+Count=4
+2=T3.1.c
+t2=76
+3=..\..\..\Lab1\hello world1.c
+t3=28
+4=..\3.1.1.c
+t4=20
+
+[ProjectLog]
+Days=3
+D1=25-01-2018
+D1_L=6
+D1_L1=[80714]Stopped Editing.
+TotalEdit=49
+TotalDebug=0
+D1_E=26
+D1_D=0
+D1_L2=[80747]Started Editing.
+D1_L3=[81130]Stopped Editing.
+D1_L4=[81272]Started Editing.
+D1_L5=[82122]Stopped Editing.
+D1_L6=[83578]Project Closed.
+D2=26-01-2018
+D2_L=23
+D2_L1=[7154]Project Opened.
+D2_L2=[7315]Started Editing.
+D2_L3=[7356]Stopped Editing.
+D2_E=12
+D2_D=0
+D2_L4=[7398]Started Editing.
+D2_L5=[7825]Stopped Editing.
+D2_L6=[7858]Started Editing.
+D2_L7=[7940]Stopped Editing.
+D2_L8=[7940]Project Closed.
+D2_L9=[30280]Project Opened.
+D2_L10=[30282]Project Closed.
+D2_L11=[30287]Project Opened.
+D2_L12=[30354]Project Closed.
+D2_L13=[31134]Project Opened.
+D2_L14=[31445]Project Closed.
+D2_L15=[44188]Project Opened.
+D2_L16=[44477]Project Closed.
+D2_L17=[52566]Project Opened.
+D2_L18=[52728]Started Editing.
+D2_L19=[52759]Project Closed.
+D2_L20=[53748]Project Opened.
+D2_L21=[53870]Started Editing.
+D2_L22=[53876]Stopped Editing.
+D2_L23=[53876]Project Closed.
+D3=31-01-2018
+D3_L=6
+D3_L1=[51083]Project Opened.
+D3_L2=[52012]Started Editing.
+D3_L3=[52849]Stopped Editing.
+D3_L4=[52874]Started Editing.
+D3_L5=[52975]Stopped Editing.
+D3_E=11
+D3_D=0
+D3_L6=[52975]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=T3.1 (main)

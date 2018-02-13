@@ -1,0 +1,47 @@
+
+ROM used:   70/8192 (1%)
+            70/8192 (1%) including unused fragments
+
+            0.1 Average locations per line
+            6.4 Average locations per statement
+
+RAM used:   7/368 (2%) at main() level
+            7/368 (2%) worst case
+
+Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   47    11 100  hello world1.c
+  761     0   0  ..\..\..\..\Program Files (x86)\PICC\Devices\16F886.h
+----- -----
+  808    11 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     66  94    2    245  4.5  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              11
+    Comments                140
+    Volume (V)              247
+    Difficulty (D)          4.3
+    Effort to implement (E) 1075
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    78
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF    66  1978  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

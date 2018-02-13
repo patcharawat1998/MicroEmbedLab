@@ -1,0 +1,54 @@
+
+ROM used:   309/8192 (4%)
+            309/8192 (4%) including unused fragments
+
+            0.4 Average locations per line
+            11.0 Average locations per statement
+
+RAM used:   15/368 (4%) at main() level
+            24/368 (7%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   93    28 100  3.1.c
+  761     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F886.h
+----- -----
+  854    28 Total
+
+Page ROM  %  RAM    Vol Diff  Functions:
+---- --- --- ---    --- ----  ----------
+0     20   6    1             @delay_ms1
+0     16   5    1             @I2C_WRITEU_1
+ Inline         1             @I2C_READU_1
+0     22   7    2    115  2.3  writeOneByteToAddress
+0     50  16    2    221  2.9  ReadOneBytefromAddress
+0     83  27    1     80  1.5  MAIN
+0     21   7    3             @DIV88
+0     93  30    6             @PRINTF_D_9600_62_63
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               3
+    Statements              28
+    Comments                161
+    Volume (V)              568
+    Difficulty (D)          6.0
+    Effort to implement (E) 3393
+    Time to implement (T)   3 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    61
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   305  1739  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

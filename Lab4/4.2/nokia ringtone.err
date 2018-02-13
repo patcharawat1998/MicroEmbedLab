@@ -1,0 +1,15 @@
+>>> Warning 229 "nokia ringtone.c" Line 60(1,1): Subscript out of range
+>>> Warning 203 "nokia ringtone.c" Line 70(1,1): Condition always TRUE
+>>> Warning 214 "nokia ringtone.c" Line 75(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "nokia ringtone.c" Line 75(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "nokia ringtone.c" Line 75(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 214 "nokia ringtone.c" Line 75(1,1): Operator precedance rules may not be as intended, use () to clarify
+>>> Warning 202 "nokia ringtone.c" Line 28(7,8): Variable never used:   C
+>>> Warning 202 "nokia ringtone.c" Line 28(39,41): Variable never used:   EB
+>>> Warning 202 "nokia ringtone.c" Line 28(60,61): Variable never used:   F
+>>> Warning 202 "nokia ringtone.c" Line 28(82,83): Variable never used:   G
+>>> Warning 202 "nokia ringtone.c" Line 28(114,116): Variable never used:   Bb
+>>> Warning 202 "nokia ringtone.c" Line 28(168,172): Variable never used:   CSHT
+      Memory usage:   ROM=4%      RAM=20% - 21%
+      0 Errors,  12 Warnings.
+Build Successful.

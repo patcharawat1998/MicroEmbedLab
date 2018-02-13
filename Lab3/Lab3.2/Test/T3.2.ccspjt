@@ -1,0 +1,47 @@
+[PROJECT]
+Target=T3.2.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=T3.2.c
+[T3.2.c]
+Type=4
+[mru-list]
+1=T3.2.c
+
+[defines]
+buildcount=20
+
+[ProjectLog]
+Days=2
+D1=31-01-2018
+D1_L=5
+D1_L1=[80094]Started Editing.
+D1_L2=[81702]Stopped Editing.
+TotalEdit=27
+TotalDebug=0
+D1_E=27
+D1_D=0
+D1_L3=[81702]Project Closed.
+D1_L4=[81740]Project Opened.
+D1_L5=[81860]Project Closed.
+D2=01-02-2018
+D2_L=2
+D2_L1=[47749]Project Opened.
+D2_L2=[53729]Project Closed.
+
+[Opened Files]
+1=T3.2.c
+t1=73
+2=T3.2.c
+t2=91
+3=..\..\Lab3.1\3.1.1.c
+t3=13
+Count=1
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=T3.2 (main)

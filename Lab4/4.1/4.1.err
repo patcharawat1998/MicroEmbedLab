@@ -1,0 +1,4 @@
+>>> Warning 202 "4.1.c" Line 25(5,12): Variable never used:   counter
+      Memory usage:   ROM=2%      RAM=4% - 4%
+      0 Errors,  1 Warnings.
+Build Successful.

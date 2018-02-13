@@ -1,0 +1,97 @@
+#include <16F886.h>
+#device ADC=10 *=16
+
+#FUSES NOWDT                    //No Watch Dog Timer
+#FUSES PUT                      //Power Up Timer
+#FUSES NOMCLR                   //Master Clear pin not enabled
+#FUSES NOPROTECT                //Code not protected from reading
+#FUSES NOCPD                    //No EE protection
+#FUSES BROWNOUT                 //Brownout reset
+#FUSES IESO                     //Internal External Switch Over mode enabled
+#FUSES FCMEN                    //Fail-safe clock monitor enabled
+#FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O
+#FUSES NODEBUG                  //No Debug mode for ICD
+#FUSES NOWRT                    //Program memory not write protected
+#FUSES BORV40                   //Brownout reset at 4.0V
+#FUSES RESERVED                 //Used to set the reserved FUSE bits
+#FUSES INTRC_IO 
+
+#use delay(clock=8M)
+
+///////////////////////////////////////////////////////////////////////////
+// Project constants
+///////////////////////////////////////////////////////////////////////////
+#define SLAVE_ADDRESS  0xB0     // the I2C address. Must be an even number
+#define REGISTER_SIZE  8       // the slave's register size. Resize to 
+                                // fit your needs
+#define DEVICE_DEF     1     // device definition. tells us what sensor is used
+
+// Config the serial port hardware on the PIC
+#use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
+
+// setup the I2C port
+#use i2c(SLAVE, I2C1, address=SLAVE_ADDRESS, FORCE_HW)
+
+///////////////////////////////////////////////////////////////////////////
+// This is the main device register
+///////////////////////////////////////////////////////////////////////////
+int deviceRegister[REGISTER_SIZE]={0}; // device register
+int gblRegisterAddress=0;              // register index
+int1 gblUpdateDeviceValue=0;
+
+
+#INT_SSP
+void ssp_interrupt()
+{
+   unsigned int8 incoming, state;
+
+   state = i2c_isr_state();
+
+   if(state <= 0x80)                      //Master is sending data
+   {
+      if(state == 0x80)
+         incoming = i2c_read(2);          //Passing 2 as parameter, causes the function to read the SSPBUF without releasing the clock
+      else
+         incoming = i2c_read();
+
+      if(state == 1)                      //First received byte is address
+         gblRegisterAddress = incoming;
+      else if(state >= 2 && state != 0x80) {  //Received byte is data
+         deviceRegister[gblRegisterAddress] = incoming;
+         if (gblRegisterAddress == DEVICE_DEF) {
+            gblUpdateDeviceValue = 1;
+         }
+         gblRegisterAddress++;
+      }
+   }
+
+   if(state >= 0x80)                      //Master is requesting data
+   {
+      i2c_write(deviceRegister[gblRegisterAddress++]);
+   }
+}
+
+
+void main() {
+
+     int i;
+
+     enable_interrupts(INT_SSP);
+     enable_interrupts(GLOBAL);
+     
+     while (1) {
+     
+     
+     // ... DO SOME THING ...
+                
+           printf("Press any key to view slave registers:");
+           getc();
+           
+           printf("\r\nDevice Register = [ ");
+           for (i=0;i<REGISTER_SIZE;i++) {
+               printf("%u ",deviceRegister[i] ); 
+           }
+           printf("]\r\n");
+     }
+
+}

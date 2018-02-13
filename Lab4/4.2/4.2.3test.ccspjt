@@ -1,0 +1,54 @@
+[defines]
+buildcount=18
+
+[PROJECT]
+Processor_Text=PIC16F886
+Target=4.2.3test.hex
+CCSVersion=5.074
+Compiler=PCM
+
+[Opened Files]
+1=4.2.2test.c
+t1=54
+2=nokia ringtone.c
+t2=55
+Count=4
+3=4.2.3test.c
+t3=55
+4=4.2.1test.c
+t4=21
+[Target Data]
+FileList=4.2.3test.c
+[4.2.3test.c]
+Type=4
+[mru-list]
+1=4.2.3test.c
+
+[ProjectLog]
+Days=1
+D1=07-02-2018
+D1_L=14
+D1_L1=[52211]Started Editing.
+D1_L2=[52919]Stopped Editing.
+D1_L3=[53730]Started Editing.
+D1_L4=[54258]Stopped Editing.
+TotalEdit=31
+TotalDebug=0
+D1_E=31
+D1_D=0
+D1_L5=[54264]Started Editing.
+D1_L6=[54393]Project Closed.
+D1_L7=[57120]Project Opened.
+D1_L8=[57388]Started Editing.
+D1_L9=[58234]Stopped Editing.
+D1_L10=[58234]Project Closed.
+D1_L11=[58449]Project Opened.
+D1_L12=[58449]Project Closed.
+D1_L13=[58449]Project Opened.
+D1_L14=[58559]Project Closed.
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=4.2.3test (main)

@@ -1,0 +1,246 @@
+CCS PCM C Compiler, Version 5.074, 32906               07-Feb-18 13:52
+
+               Filename:   C:\Users\DONUT\Desktop\2_2560_Work\EMbedLab\Lab4\4.2\T4.2.lst
+
+               ROM used:   150 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   15 (4%) at main() level
+                           16 (4%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   052
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.0
+001A:  GOTO   01D
+001B:  BTFSC  0C.0
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   031
+.................... #include <16F886.h> 
+.................... //////////// Standard Header file for the PIC16F886 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F886 
+....................  
+.................... #list 
+....................  
+.................... #device adc=10 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES HS                       //High speed Osc (> 4mhz for PCM/PCH) (>10mhz for PCD) 
+.................... #FUSES PUT                      //Power Up Timer 
+.................... #FUSES NOMCLR                   //Master Clear pin not enabled 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES BROWNOUT                 //Brownout reset 
+.................... #FUSES IESO                     //Internal External Switch Over mode enabled 
+.................... #FUSES FCMEN                    //Fail-safe clock monitor enabled 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NODEBUG                  //No Debug mode for ICD 
+.................... #FUSES NOWRT                    //Program memory not write protected 
+.................... #FUSES BORV40                   //Brownout reset at 4.0V 
+.................... #FUSES RESERVED                 //Used to set the reserved FUSE bits 
+....................  
+.................... #use delay(clock=8M) 
+*
+003C:  MOVLW  2A
+003D:  MOVWF  04
+003E:  BCF    03.7
+003F:  MOVF   00,W
+0040:  BTFSC  03.2
+0041:  GOTO   04F
+0042:  MOVLW  02
+0043:  MOVWF  78
+0044:  CLRF   77
+0045:  DECFSZ 77,F
+0046:  GOTO   045
+0047:  DECFSZ 78,F
+0048:  GOTO   044
+0049:  MOVLW  97
+004A:  MOVWF  77
+004B:  DECFSZ 77,F
+004C:  GOTO   04B
+004D:  DECFSZ 00,F
+004E:  GOTO   042
+004F:  BCF    0A.3
+0050:  BCF    0A.4
+0051:  GOTO   08C (RETURN)
+....................  
+.................... // Config the serial port hardware on the PIC 
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+.................... int1 counter=0; 
+.................... int1 isHigh=0;  // a flag to check the status of the output pulse pin 
+....................  
+.................... #INT_TIMER1 
+.................... void timer1_isr() { 
+....................    set_timer1(-64346); // re-set the timer1 counter to maintain a stable period 
+*
+0031:  CLRF   0E
+0032:  MOVLW  04
+0033:  MOVWF  0F
+0034:  MOVLW  A6
+0035:  MOVWF  0E
+....................   counter=!counter; 
+0036:  MOVLW  01
+0037:  XORWF  27,F
+....................  
+0038:  BCF    0C.0
+0039:  BCF    0A.3
+003A:  BCF    0A.4
+003B:  GOTO   01D
+.................... } 
+....................  
+....................  
+.................... void main() 
+*
+0052:  MOVF   03,W
+0053:  ANDLW  1F
+0054:  MOVWF  03
+0055:  BSF    03.5
+0056:  BSF    03.6
+0057:  BCF    07.3
+0058:  MOVLW  0C
+0059:  BCF    03.6
+005A:  MOVWF  19
+005B:  MOVLW  A2
+005C:  MOVWF  18
+005D:  MOVLW  90
+005E:  BCF    03.5
+005F:  MOVWF  18
+0060:  BCF    27.0
+0061:  BCF    27.1
+0062:  BSF    03.5
+0063:  BSF    03.6
+0064:  MOVF   09,W
+0065:  ANDLW  C0
+0066:  MOVWF  09
+0067:  BCF    03.6
+0068:  BCF    1F.4
+0069:  BCF    1F.5
+006A:  MOVLW  00
+006B:  BSF    03.6
+006C:  MOVWF  08
+006D:  BCF    03.5
+006E:  CLRF   07
+006F:  CLRF   08
+0070:  CLRF   09
+0071:  BCF    03.7
+.................... { 
+....................    //////////////////////////////////////////////////////////////// 
+....................    // set timer1 
+....................    // 
+....................    // interrupt period = (1/20)*4*8*(65536-3036) us = 100.0 ms 
+....................    //////////////////////////////////////////////////////////////// 
+....................    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
+0072:  MOVLW  35
+0073:  BCF    03.6
+0074:  MOVWF  10
+....................    set_timer1(-64346);  
+0075:  CLRF   0E
+0076:  MOVLW  04
+0077:  MOVWF  0F
+0078:  MOVLW  A6
+0079:  MOVWF  0E
+....................    enable_interrupts(INT_RB7); 
+007A:  BSF    0B.3
+007B:  BSF    03.5
+007C:  BSF    16.7
+....................    enable_interrupts(GLOBAL); 
+007D:  MOVLW  C0
+007E:  BCF    03.5
+007F:  IORWF  0B,F
+....................        
+....................    int i=0; 
+0080:  CLRF   28
+....................  
+....................    while(1) { 
+....................        
+....................       if (counter) { 
+0081:  BTFSS  27.0
+0082:  GOTO   094
+....................          output_high(PIN_B5); 
+0083:  BSF    03.5
+0084:  BCF    06.5
+0085:  BCF    03.5
+0086:  BSF    06.5
+....................       delay_ms(1000); 
+0087:  MOVLW  04
+0088:  MOVWF  29
+0089:  MOVLW  FA
+008A:  MOVWF  2A
+008B:  GOTO   03C
+008C:  DECFSZ 29,F
+008D:  GOTO   089
+....................       output_low(PIN_B5); 
+008E:  BSF    03.5
+008F:  BCF    06.5
+0090:  BCF    03.5
+0091:  BCF    06.5
+....................       counter=!counter; 
+0092:  MOVLW  01
+0093:  XORWF  27,F
+....................  
+....................       } 
+0094:  GOTO   081
+....................  
+....................  
+....................    } 
+....................  
+....................  
+.................... } 
+0095:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FC2   HS NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

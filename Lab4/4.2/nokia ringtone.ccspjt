@@ -1,0 +1,40 @@
+[PROJECT]
+Target=nokia ringtone.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=nokia ringtone.c
+[nokia ringtone.c]
+Type=4
+[mru-list]
+1=nokia ringtone.c
+
+[defines]
+buildcount=11
+
+[ProjectLog]
+Days=1
+D1=07-02-2018
+D1_L=5
+D1_L1=[54714]Started Editing.
+D1_L2=[55014]Stopped Editing.
+D1_L3=[55757]Started Editing.
+D1_L4=[57120]Stopped Editing.
+TotalEdit=23
+TotalDebug=0
+D1_E=23
+D1_D=0
+D1_L5=[57120]Project Closed.
+
+[Opened Files]
+1=4.2.2test.c
+t1=54
+2=nokia ringtone.c
+t2=43
+Count=3
+3=4.2.3test.c
+t3=43
+[Units]
+Count=1
+1=nokia ringtone (main)

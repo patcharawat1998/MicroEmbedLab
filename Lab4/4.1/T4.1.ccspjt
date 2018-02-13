@@ -1,0 +1,41 @@
+[PROJECT]
+Target=T4.1.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=T4.1.c
+[T4.1.c]
+Type=4
+[mru-list]
+1=T4.1.c
+
+[defines]
+buildcount=7
+
+[ProjectLog]
+Days=1
+D1=03-02-2018
+D1_L=3
+D1_L1=[45888]Stopped Editing.
+TotalEdit=3
+TotalDebug=0
+D1_E=3
+D1_D=0
+D1_L2=[45972]Started Editing.
+D1_L3=[46532]Project Closed.
+
+[fileformats]
+forcecoff=0
+
+[Opened Files]
+1=T4.1.c
+t1=1
+2=..\4.2\4.2.c
+t2=9
+3=..\..\Lab3\Lab3.2\Test\T3.2.c
+t3=143
+Count=3
+[Units]
+Count=1
+1=T4.1 (main)

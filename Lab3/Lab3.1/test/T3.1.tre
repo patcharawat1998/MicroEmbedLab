@@ -1,0 +1,12 @@
+읕Lab3
+   읕main  0/136  Ram=4
+      쳐@cinit1  (Inline)  Ram=0
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@delay_ms1  0/22  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      쳐@I2C_WRITEU_1  0/16  Ram=1
+      읕@I2C_WRITEU_1  0/16  Ram=1

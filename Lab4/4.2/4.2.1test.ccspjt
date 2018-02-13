@@ -1,0 +1,23 @@
+[PROJECT]
+Target=4.2.1test.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=4.2.1test.c
+[4.2.1test.c]
+Type=4
+[mru-list]
+1=4.2.1test.c
+[Units]
+Count=1
+1=4.2.1test (main)
+
+[defines]
+buildcount=1
+
+[ProjectLog]
+Days=1
+D1=07-02-2018
+D1_L=1
+D1_L1=[50492]Project Closed.

@@ -1,0 +1,6 @@
+>>> Warning 203 "T4.2.c" Line 49(1,1): Condition always TRUE
+>>> Warning 202 "T4.2.c" Line 25(6,12): Variable never used:   isHigh
+>>> Warning 202 "T4.2.c" Line 47(8,9): Variable never used:   i
+      Memory usage:   ROM=2%      RAM=4% - 4%
+      0 Errors,  3 Warnings.
+Build Successful.

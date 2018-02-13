@@ -1,0 +1,11 @@
+읕Lab2
+   읕main  0/214  Ram=6
+      쳐@cinit1  (Inline)  Ram=0
+      쳐@PSTRINGC7_9600_62_63  0/90  Ram=4
+      쳐@PSTRINGCN7_9600_62_63  0/91  Ram=5
+      쳐@PRINTF_LU_9600_62_63  0/89  Ram=9
+      쳐@PRINTF_LU_9600_62_63  0/89  Ram=9
+      쳐@PRINTF_LU_9600_62_63  0/89  Ram=9
+      쳐@PRINTF_LU_9600_62_63  0/89  Ram=9
+      쳐@delay_ms1  0/20  Ram=1
+      읕@delay_ms1  0/20  Ram=1

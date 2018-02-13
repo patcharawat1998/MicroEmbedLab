@@ -1,0 +1,40 @@
+[PROJECT]
+Target=4.2.2test.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=4.2.2test.c
+[4.2.2test.c]
+Type=4
+[mru-list]
+1=4.2.2test.c
+
+[defines]
+buildcount=2
+
+[ProjectLog]
+Days=1
+D1=07-02-2018
+D1_L=8
+D1_L1=[51023]Started Editing.
+D1_L2=[51440]Stopped Editing.
+D1_L3=[51493]Started Editing.
+D1_L4=[51796]Stopped Editing.
+D1_L5=[52042]Started Editing.
+D1_L6=[52076]Project Closed.
+D1_L7=[58449]Project Opened.
+D1_L8=[58449]Project Closed.
+
+[Opened Files]
+1=4.2.2test.c
+t1=34
+2=4.2.3test.c
+t2=34
+Count=2
+[Units]
+Count=1
+1=4.2.2test (main)
+
+[fileformats]
+forcecoff=0
