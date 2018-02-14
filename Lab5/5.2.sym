@@ -1,0 +1,62 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020-021 duty
+022     @TRIS_C
+023     @delay_ms1.P1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+107.6   C1OUT
+108.6   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00001A  @cinit1
+00001A  main
+00003F  @cinit2
+
+Project Directory:
+    K:\Github\MicroEmbedLab\Lab5\
+
+Project Files:
+    5.2.c                                                   [14-Feb-18 07:36  CRC=40380DB5]
+    C:\Program Files (x86)\PICC\Devices\16F886.h            [21-Jul-17 13:41  CRC=7107D019]
+
+Source signature=2247ADE7
+Program memory checksum=0000
+Program memory CRC=0000
+Hex file CRC=2412
+
+Units:
+    5.2 (main)
+
+Compiler Settings:
+    Processor:      PIC16F886
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+    Compile Mode:       CCS5
+
+Output Files:
+    XREF file:   5.2.xsym
+    Errors:      5.2.err
+    Ext Symbols: 5.2.esym
+    INHX8:       5.2.hex
+    Symbols:     5.2.sym
+    List:        5.2.lst
+    Debug/COFF:  5.2.cof
+    Project:     5.2.ccspjt
+    Call Tree:   5.2.tre
+    Statistics:  5.2.STA

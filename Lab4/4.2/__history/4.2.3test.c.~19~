@@ -25,8 +25,8 @@
 
 
 
-int16 C = 65298,CSH = 65311,D = 65324,EB = 65336,E = 65347,F = 65358,FSH = 65368,G = 65377,GSH = 65386,A = 65394,Bb = 65402,B = 65410; //note key
-int16 note[44]; //lyric
+int16 C = 65298,CSH = 65311,D = 65324,EB = 65336,E = 65347,F = 65358,FSH = 65368,G = 65377,GSH = 65386,A = 65394,Bb = 65402,B = 65410;
+int16 note[44];
 
 
 
@@ -45,7 +45,7 @@ output_toggle(PIN_B4);
 
 void main() {
 
-note[1] = C;
+   note[1] = C;
 note[2] = C;
 note[3] = G;
 note[4] = G;

@@ -1,0 +1,39 @@
+[PROJECT]
+Target=5.2.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=5.2.c
+[5.2.c]
+Type=4
+[mru-list]
+1=5.2.c
+
+[defines]
+buildcount=5
+
+[fileformats]
+forcecoff=0
+
+[Opened Files]
+1=5.1.c
+t1=21
+2=..\Lab4\4.2\4.2.3test.c
+t2=17
+3=..\Lab4\4.2\4.2.2test.c
+t3=37
+4=5.2.c
+t4=37
+Count=4
+
+[ProjectLog]
+Days=1
+D1=14-02-2018
+D1_L=3
+D1_L1=[27243]Started Editing.
+D1_L2=[27707]Stopped Editing.
+D1_L3=[27928]Project Closed.
+[Units]
+Count=1
+1=5.2 (main)

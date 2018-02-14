@@ -26,7 +26,7 @@ D1_L6=[52076]Project Closed.
 D1_L7=[58449]Project Opened.
 D1_L8=[58449]Project Closed.
 D2=14-02-2018
-D2_L=4
+D2_L=6
 D2_L1=[1457]Project Opened.
 D2_L2=[1553]Started Editing.
 D2_L3=[1647]Stopped Editing.
@@ -35,6 +35,8 @@ TotalDebug=0
 D2_E=2
 D2_D=0
 D2_L4=[1647]Project Closed.
+D2_L5=[20116]Project Opened.
+D2_L6=[20196]Project Closed.
 
 [Opened Files]
 1=..\..\Lab1\1.2.2.c

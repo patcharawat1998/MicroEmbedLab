@@ -1,0 +1,265 @@
+CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 07:13
+
+               Filename:   K:\Github\MicroEmbedLab\Lab5\5.1.lst
+
+               ROM used:   172 words (2%)
+                           Largest free fragment is 2048
+               RAM used:   14 (4%) at main() level
+                           15 (4%) worst case
+               Stack used: 1 locations (0 in main + 1 for interrupts)
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   064
+0003:  NOP
+0004:  MOVWF  7F
+0005:  SWAPF  03,W
+0006:  CLRF   03
+0007:  MOVWF  21
+0008:  MOVF   0A,W
+0009:  MOVWF  20
+000A:  CLRF   0A
+000B:  MOVF   04,W
+000C:  MOVWF  22
+000D:  MOVF   77,W
+000E:  MOVWF  23
+000F:  MOVF   78,W
+0010:  MOVWF  24
+0011:  MOVF   79,W
+0012:  MOVWF  25
+0013:  MOVF   7A,W
+0014:  MOVWF  26
+0015:  BCF    03.7
+0016:  BCF    03.5
+0017:  MOVLW  8C
+0018:  MOVWF  04
+0019:  BTFSS  00.0
+001A:  GOTO   01D
+001B:  BTFSC  0C.0
+001C:  GOTO   02E
+001D:  MOVF   22,W
+001E:  MOVWF  04
+001F:  MOVF   23,W
+0020:  MOVWF  77
+0021:  MOVF   24,W
+0022:  MOVWF  78
+0023:  MOVF   25,W
+0024:  MOVWF  79
+0025:  MOVF   26,W
+0026:  MOVWF  7A
+0027:  MOVF   20,W
+0028:  MOVWF  0A
+0029:  SWAPF  21,W
+002A:  MOVWF  03
+002B:  SWAPF  7F,F
+002C:  SWAPF  7F,W
+002D:  RETFIE
+002E:  BCF    0A.3
+002F:  BCF    0A.4
+0030:  GOTO   031
+.................... #include <16F886.h> 
+.................... //////////// Standard Header file for the PIC16F886 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2014 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC16F886 
+....................  
+.................... #list 
+....................  
+.................... #device ADC=10 *=16 
+....................  
+.................... #FUSES NOWDT                    //No Watch Dog Timer 
+.................... #FUSES PUT                      //Power Up Timer 
+.................... #FUSES NOMCLR                   //Master Clear pin not enabled 
+.................... #FUSES NOPROTECT                //Code not protected from reading 
+.................... #FUSES NOCPD                    //No EE protection 
+.................... #FUSES BROWNOUT                 //Brownout reset 
+.................... #FUSES IESO                     //Internal External Switch Over mode enabled 
+.................... #FUSES FCMEN                    //Fail-safe clock monitor enabled 
+.................... #FUSES NOLVP                    //No low voltage prgming, B3(PIC16) or B5(PIC18) used for I/O 
+.................... #FUSES NODEBUG                  //No Debug mode for ICD 
+.................... #FUSES NOWRT                    //Program memory not write protected 
+.................... #FUSES BORV40                   //Brownout reset at 4.0V 
+.................... #FUSES RESERVED                 //Used to set the reserved FUSE bits 
+.................... #FUSES INTRC_IO  
+....................  
+.................... #use delay(clock=8M) 
+*
+004E:  MOVLW  29
+004F:  MOVWF  04
+0050:  BCF    03.7
+0051:  MOVF   00,W
+0052:  BTFSC  03.2
+0053:  GOTO   061
+0054:  MOVLW  02
+0055:  MOVWF  78
+0056:  CLRF   77
+0057:  DECFSZ 77,F
+0058:  GOTO   057
+0059:  DECFSZ 78,F
+005A:  GOTO   056
+005B:  MOVLW  97
+005C:  MOVWF  77
+005D:  DECFSZ 77,F
+005E:  GOTO   05D
+005F:  DECFSZ 00,F
+0060:  GOTO   054
+0061:  BCF    0A.3
+0062:  BCF    0A.4
+0063:  GOTO   0A9 (RETURN)
+....................  
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
+....................  
+.................... //#define RUN_BUTTON   PIN_B7 
+....................  
+.................... int counter = 0; 
+.................... int duty =0 ; 
+.................... #INT_TIMER1 
+.................... void timer1_isr(void) { 
+....................    set_timer1(65286); 
+*
+0031:  CLRF   0E
+0032:  MOVLW  FF
+0033:  MOVWF  0F
+0034:  MOVLW  06
+0035:  MOVWF  0E
+....................    counter++; 
+0036:  INCF   27,F
+....................    if (counter >= 5) { counter = 0;}  
+0037:  MOVF   27,W
+0038:  SUBLW  04
+0039:  BTFSS  03.0
+003A:  CLRF   27
+....................    If (counter == 0) { output_high(PIN_B5);}  // beginning of a new period 
+003B:  MOVF   27,F
+003C:  BTFSS  03.2
+003D:  GOTO   042
+003E:  BSF    03.5
+003F:  BCF    06.5
+0040:  BCF    03.5
+0041:  BSF    06.5
+....................    If (counter ==duty) {output_low(PIN_B5);}   
+0042:  MOVF   28,W
+0043:  SUBWF  27,W
+0044:  BTFSS  03.2
+0045:  GOTO   04A
+0046:  BSF    03.5
+0047:  BCF    06.5
+0048:  BCF    03.5
+0049:  BCF    06.5
+004A:  BCF    0C.0
+004B:  BCF    0A.3
+004C:  BCF    0A.4
+004D:  GOTO   01D
+.................... } 
+....................  
+....................  
+.................... void main () { 
+*
+0064:  MOVF   03,W
+0065:  ANDLW  1F
+0066:  MOVWF  03
+0067:  MOVLW  71
+0068:  BSF    03.5
+0069:  MOVWF  0F
+006A:  CLRF   10
+006B:  MOVF   0F,W
+006C:  BSF    03.6
+006D:  BCF    07.3
+006E:  MOVLW  0C
+006F:  BCF    03.6
+0070:  MOVWF  19
+0071:  MOVLW  A2
+0072:  MOVWF  18
+0073:  MOVLW  90
+0074:  BCF    03.5
+0075:  MOVWF  18
+0076:  CLRF   27
+0077:  CLRF   28
+0078:  BSF    03.5
+0079:  BSF    03.6
+007A:  MOVF   09,W
+007B:  ANDLW  C0
+007C:  MOVWF  09
+007D:  BCF    03.6
+007E:  BCF    1F.4
+007F:  BCF    1F.5
+0080:  MOVLW  00
+0081:  BSF    03.6
+0082:  MOVWF  08
+0083:  BCF    03.5
+0084:  CLRF   07
+0085:  CLRF   08
+0086:  CLRF   09
+0087:  BCF    03.7
+....................  
+....................  
+....................    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
+0088:  MOVLW  35
+0089:  BCF    03.6
+008A:  MOVWF  10
+....................    set_timer1(65286); 
+008B:  CLRF   0E
+008C:  MOVLW  FF
+008D:  MOVWF  0F
+008E:  MOVLW  06
+008F:  MOVWF  0E
+....................    enable_interrupts(INT_TIMER1);    // generate interrupt when B7 changes 
+0090:  BSF    03.5
+0091:  BSF    0C.0
+....................    enable_interrupts(GLOBAL); 
+0092:  MOVLW  C0
+0093:  BCF    03.5
+0094:  IORWF  0B,F
+....................   // enable_interrupts(INT_RB7); 
+....................  
+....................     
+....................    while(1){ 
+....................     
+....................       if(!input(PIN_B7)){ 
+0095:  BSF    03.5
+0096:  BSF    06.7
+0097:  BCF    03.5
+0098:  BTFSC  06.7
+0099:  GOTO   0AA
+....................          if(duty>=5)duty=0; 
+009A:  MOVF   28,W
+009B:  SUBLW  04
+009C:  BTFSC  03.0
+009D:  GOTO   0A0
+009E:  CLRF   28
+009F:  GOTO   0A1
+....................          else{ 
+....................             duty++; 
+00A0:  INCF   28,F
+....................          } 
+....................          while(!input(PIN_B7)){ 
+00A1:  BSF    03.5
+00A2:  BSF    06.7
+00A3:  BCF    03.5
+00A4:  BTFSC  06.7
+00A5:  GOTO   0AA
+....................             delay_ms(1); 
+00A6:  MOVLW  01
+00A7:  MOVWF  29
+00A8:  GOTO   04E
+00A9:  GOTO   0A1
+....................          } 
+....................       }  
+00AA:  GOTO   095
+....................    } 
+.................... } 
+....................  
+00AB:  SLEEP
+
+Configuration Fuses:
+   Word  1: 2FC4   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
+   Word  2: 3FFF   BORV40 NOWRT

@@ -1,0 +1,55 @@
+[PROJECT]
+Target=5.3.hex
+Processor_Text=PIC16F886
+CCSVersion=5.074
+Compiler=PCM
+[Target Data]
+FileList=5.3.c
+[5.3.c]
+Type=4
+[mru-list]
+1=5.3.c
+
+[defines]
+buildcount=23
+
+[ProjectLog]
+Days=1
+D1=14-02-2018
+D1_L=15
+D1_L1=[28542]Started Editing.
+D1_L2=[28843]Stopped Editing.
+D1_L3=[28963]Started Editing.
+D1_L4=[30154]Stopped Editing.
+D1_L5=[30386]Started Editing.
+D1_L6=[31238]Stopped Editing.
+TotalEdit=40
+TotalDebug=0
+D1_E=40
+D1_D=0
+D1_L7=[31238]Project Closed.
+D1_L8=[33761]Project Opened.
+D1_L9=[33761]Project Closed.
+D1_L10=[33762]Project Opened.
+D1_L11=[33985]Started Editing.
+D1_L12=[34154]Stopped Editing.
+D1_L13=[34210]Started Editing.
+D1_L14=[34901]Stopped Editing.
+D1_L15=[35482]Project Closed.
+
+[Opened Files]
+1=5.1.c
+t1=24
+2=..\Lab4\4.2\4.2.3test.c
+t2=17
+3=..\Lab4\4.2\4.2.2test.c
+t3=37
+4=5.3.c
+t4=37
+Count=4
+
+[fileformats]
+forcecoff=0
+[Units]
+Count=1
+1=5.3 (main)
