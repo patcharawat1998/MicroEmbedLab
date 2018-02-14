@@ -1,9 +1,9 @@
-D G "__PCM__" 0 76 ""5.074""
-D G "__DEVICE__" 0 76 "886"
-D G "__DATE__" 0 76 ""14-Feb-18""
-D G "__TIME__" 0 76 ""13:41:47""
-D G "_UNICODE" 0 76 ""?""
-D G "__EVAL" 0 76 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
+D G "__PCM__" 0 0 ""5.074""
+D G "__DEVICE__" 0 0 ""
+D G "__DATE__" 0 0 ""14-Feb-18""
+D G "__TIME__" 0 0 ""14:34:07""
+D G "_UNICODE" 0 0 ""?""
+D G "__EVAL" 0 0 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -428,9 +428,9 @@ f N "read_adc" 1 448 ""
 f G "read_adc" 1 448 "int16()" `192 
 f N "read_adc" 1 449 ""
 v L "mode" 1 449 "int8" `193 
-f G "read_adc" 1 449 "int16(int8 mode,int32 pins)" `192 
+f G "read_adc" 1 449 "int16(int8 mode)" `192 
 f N "adc_done" 1 450 ""
-f B "adc_done" 1 450 "int8(int8 mode,int32 pins)" `192  "Constants used for SETUP_ADC() are:"
+f B "adc_done" 1 450 "int8(int8 mode)" `192  "Constants used for SETUP_ADC() are:"
 d G "ADC_OFF" 1 452 "0" "ADC Off"
 d G "ADC_CLOCK_DIV_2" 1 453 "0x100"
 d G "ADC_CLOCK_DIV_8" 1 454 "0x40"
@@ -782,9 +782,9 @@ f B "i2c_init" 1 596 "void(int8 stream,int32 baud)" `420  "#use spi() Prototypes
 f N "spi_xfer" 1 599 ""
 f B "spi_xfer" 1 599 "int8()" `423 
 f N "spi_xfer" 1 600 ""
-f G "spi_xfer" 1 600 "int16(int8 data)" `424 
+f G "spi_xfer" 1 600 "int16()" `424 
 f N "spi_xfer" 1 601 ""
-f G "spi_xfer" 1 601 "int32(int8 data)" `424 
+f G "spi_xfer" 1 601 "int32()" `424 
 f N "spi_xfer" 1 602 ""
 v L "data" 1 602 "int8" `425 
 f B "spi_xfer" 1 602 "int8(int8 data)" `424 
@@ -864,18 +864,18 @@ f B "spi_prewrite" 1 621 "void(int8 ,int32 data)" `477
 f N "spi_xfer_in" 1 622 ""
 f B "spi_xfer_in" 1 622 "int8()" `480 
 f N "spi_xfer_in" 1 623 ""
-f G "spi_xfer_in" 1 623 "int16(int8 bits)" `481 
+f G "spi_xfer_in" 1 623 "int16()" `481 
 f N "spi_xfer_in" 1 624 ""
-f G "spi_xfer_in" 1 624 "int32(int8 bits)" `481 
+f G "spi_xfer_in" 1 624 "int32()" `481 
 f N "spi_xfer_in" 1 625 ""
 v L "bits" 1 625 "int8" `482 
 f B "spi_xfer_in" 1 625 "int8(int8 bits)" `481 
 f N "spi_xfer_in" 1 626 ""
 v L "bits" 1 626 "int8" `484 
-f G "spi_xfer_in" 1 626 "int16(int8 bits,int8 bits)" `483 
+f G "spi_xfer_in" 1 626 "int16(int8 bits)" `483 
 f N "spi_xfer_in" 1 627 ""
 v L "bits" 1 627 "int8" `484 
-f G "spi_xfer_in" 1 627 "int32(int8 bits,int8 bits)" `483 
+f G "spi_xfer_in" 1 627 "int32(int8 bits)" `483 
 f N "spi_xfer_in" 1 628 ""
 v L "stream" 1 628 "int8" `484 
 v L "bits" 1 628 "int8" `485 
@@ -883,15 +883,15 @@ f B "spi_xfer_in" 1 628 "int8(int8 stream,int8 bits)" `483
 f N "spi_xfer_in" 1 629 ""
 v L "stream" 1 629 "int8" `484 
 v L "bits" 1 629 "int8" `488 
-f G "spi_xfer_in" 1 629 "int16(int8 stream,int8 bits,int8 task)" `486 
+f G "spi_xfer_in" 1 629 "int16(int8 stream,int8 bits)" `486 
 f N "spi_xfer_in" 1 630 ""
 v L "stream" 1 630 "int8" `484 
 v L "bits" 1 630 "int8" `488 
-f G "spi_xfer_in" 1 630 "int32(int8 stream,int8 bits,int8 task)" `486  "#use rtos() Prototypes:"
+f G "spi_xfer_in" 1 630 "int32(int8 stream,int8 bits)" `486  "#use rtos() Prototypes:"
 f N "rtos_run" 1 633 ""
-f B "rtos_run" 1 633 "void(int8 stream,int8 bits,int8 task)" `486 
+f B "rtos_run" 1 633 "void(int8 stream,int8 bits)" `486 
 f N "rtos_yield" 1 634 ""
-f B "rtos_yield" 1 634 "void(int8 bits,int8 task)" `487 
+f B "rtos_yield" 1 634 "void(int8 bits)" `487 
 f N "rtos_enable" 1 635 ""
 v L "task" 1 635 "int8" `489 
 f B "rtos_enable" 1 635 "void(int8 task)" `488 
@@ -927,9 +927,9 @@ f B "rtos_stats" 1 645 "void(int8 task,*int8 stat)" `506  "#use timer() Prototyp
 f N "get_ticks" 1 648 ""
 f B "get_ticks" 1 648 "int8()" `509 
 f N "get_ticks" 1 649 ""
-f G "get_ticks" 1 649 "int16(int8 stream)" `510 
+f G "get_ticks" 1 649 "int16()" `510 
 f N "get_ticks" 1 650 ""
-f G "get_ticks" 1 650 "int32(int8 stream)" `510 
+f G "get_ticks" 1 650 "int32()" `510 
 f N "get_ticks" 1 651 ""
 v L "stream" 1 651 "int8" `511 
 f B "get_ticks" 1 651 "int8(int8 stream)" `510 
@@ -1093,29 +1093,15 @@ d G "INT_RB6" 1 757 "0x1400B08"
 d G "INT_RB7" 1 758 "0x1800B08"
 D G "SLAVE_ADDRESS" 0 20 "0xB0"
 C L "jump_to_isr" 0 21 1 "FUNCTION"
-V G "note" 0 26 "int16[40]" `605 
-V G "C" 0 27 "int16" `606 
-V G "CH" 0 27 "int16" `607 
-V G "D" 0 27 "int16" `608 
-V G "Eb" 0 27 "int16" `609 
-V G "E" 0 27 "int16" `610 
-V G "F" 0 27 "int16" `611 
-V G "FH" 0 27 "int16" `612 
-V G "G" 0 27 "int16" `613 
-V G "GH" 0 27 "int16" `614 
-V G "A" 0 27 "int16" `615 
-V G "B" 0 27 "int16" `616 
-V G "Bb" 0 27 "int16" `617 
-V G "i" 0 28 "int8" `618 
-V G "counter" 0 29 "int8" `619 
-V G "duty" 0 30 "int8" `620 
-V G "y" 0 31 "int8" `621 
-V G "pwd" 0 32 "int8" `622 
-F N "timer1_isr" 0 35 ""
-F G "timer1_isr" 0 35 "void()" `623 
+V G "counter" 0 27 "int8" `605 
+V G "duty" 0 28 "int8" `606 
+V G "y" 0 29 "int8" `607 
+V G "pwd" 0 30 "int8" `608 
+F N "timer1_isr" 0 33 ""
+F G "timer1_isr" 0 33 "void()" `609 
 C L "timer1_isr" 0 21 1 "FUNCTION"
-F N "MAIN" 0 48 ""
-F G "MAIN" 0 48 "void()" `624 
+F N "MAIN" 0 44 ""
+F G "MAIN" 0 44 "void()" `610 
 C L "MAIN" 0 21 2 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0

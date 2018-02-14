@@ -23,47 +23,50 @@
 #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8)
 #use i2c(MASTER, I2C1, FORCE_HW) // configure the i2c port
 
-
+int16 note[40];
+int16 C=63626,CH=63733, D=63834 ,Eb=63930 ,E=64020 ,F=64105 ,FH=64185,G=64261 ,GH=64332,A=64400 ,B=64524,Bb=64524;
+int i = 0 ;
 int counter=0;
 int duty=0;
 int y=1;
 int pwd=1;
-
 #INT_TIMER1
+
 void timer1_isr(){
   set_timer1(65036); 
    counter++;
    
    if (counter == 19) { counter = 0;} 
-   if (counter == 0) { output_high(PIN_B4);}  // beginning of a new period
-   if (counter == pwd) {output_low(PIN_B4);}  
+   If (counter == 0) { output_high(PIN_B4);}  // beginning of a new period
+   If (counter ==pwd) {output_low(PIN_B4);}  
+
+   
 }
 
 
 
 void main() {
-   setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);
+    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);
    set_timer1(65036); 
    enable_interrupts(INT_TIMER1); 
    enable_interrupts(GLOBAL);
 
-  //Counter = 0;
+ //Counter = 0;
   // Duty = 3;
    While(1){
    
      if (!input(PIN_B7) && y==1) { 
-           if(pwd==1){ 
-                 pwd=2;
-                 output_low(PIN_B5);
-           }else{ 
-               pwd=1;
-               output_high(PIN_B5);
-           }
-               y=0;
-               delay_ms(200);
-     }else{
-         y=1;
+     if(pwd==1){ pwd=2;
+     output_low(PIN_B5);
      }
-
+ else { pwd=1;
+ output_high(PIN_B5);
+ }
+         y=0;
+         delay_ms(200);
+      }else y=1;
+      
+     
+     
    }
 }

@@ -1,11 +1,11 @@
-CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 13:41
+CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
 
                Filename:   D:\GitHub\MicroEmbedLab\Lab5\5.3.lst
 
-               ROM used:   255 words (3%)
+               ROM used:   204 words (2%)
                            Largest free fragment is 2048
-               RAM used:   122 (33%) at main() level
-                           123 (33%) worst case
+               RAM used:   17 (5%) at main() level
+                           18 (5%) worst case
                Stack used: 1 locations (0 in main + 1 for interrupts)
                Stack size: 8
 
@@ -93,9 +93,9 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 13:41
 ....................  
 .................... #use delay(clock=8M) 
 *
-004E:  MOVLW  10
+004E:  MOVLW  2C
 004F:  MOVWF  04
-0050:  BSF    03.7
+0050:  BCF    03.7
 0051:  MOVF   00,W
 0052:  BTFSC  03.2
 0053:  GOTO   061
@@ -114,22 +114,20 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 13:41
 0060:  GOTO   054
 0061:  BCF    0A.3
 0062:  BCF    0A.4
-0063:  GOTO   0FA (RETURN)
+0063:  GOTO   0C7 (RETURN)
 .................... #define SLAVE_ADDRESS  0xB0 
 .................... //#define SLAVE_ADDRESS  0xD0 
 ....................  
 .................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7,bits=8) 
 .................... #use i2c(MASTER, I2C1, FORCE_HW) // configure the i2c port 
 ....................  
-.................... int16 note[40]; 
-.................... int16 C=63626,CH=63733, D=63834 ,Eb=63930 ,E=64020 ,F=64105 ,FH=64185,G=64261 ,GH=64332,A=64400 ,B=64524,Bb=64524; 
-.................... int i = 0 ; 
+....................  
 .................... int counter=0; 
 .................... int duty=0; 
 .................... int y=1; 
 .................... int pwd=1; 
-.................... #INT_TIMER1 
 ....................  
+.................... #INT_TIMER1 
 .................... void timer1_isr(){ 
 ....................   set_timer1(65036);  
 *
@@ -139,32 +137,30 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 13:41
 0034:  MOVLW  0C
 0035:  MOVWF  0E
 ....................    counter++; 
-0036:  INCF   41,F
+0036:  INCF   28,F
 ....................     
 ....................    if (counter == 19) { counter = 0;}  
-0037:  MOVF   41,W
+0037:  MOVF   28,W
 0038:  SUBLW  13
 0039:  BTFSC  03.2
-003A:  CLRF   41
-....................    If (counter == 0) { output_high(PIN_B4);}  // beginning of a new period 
-003B:  MOVF   41,F
+003A:  CLRF   28
+....................    if (counter == 0) { output_high(PIN_B4);}  // beginning of a new period 
+003B:  MOVF   28,F
 003C:  BTFSS  03.2
 003D:  GOTO   042
 003E:  BSF    03.5
 003F:  BCF    06.4
 0040:  BCF    03.5
 0041:  BSF    06.4
-....................    If (counter ==pwd) {output_low(PIN_B4);}   
-0042:  MOVF   44,W
-0043:  SUBWF  41,W
+....................    if (counter == pwd) {output_low(PIN_B4);}   
+0042:  MOVF   2B,W
+0043:  SUBWF  28,W
 0044:  BTFSS  03.2
 0045:  GOTO   04A
 0046:  BSF    03.5
 0047:  BCF    06.4
 0048:  BCF    03.5
 0049:  BCF    06.4
-....................  
-....................     
 004A:  BCF    0C.0
 004B:  BCF    0A.3
 004C:  BCF    0A.4
@@ -212,148 +208,98 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 13:41
 0086:  BSF    03.5
 0087:  BSF    14.7
 0088:  BCF    14.6
-0089:  MOVLW  F8
-008A:  BCF    03.5
-008B:  MOVWF  29
-008C:  MOVLW  8A
-008D:  MOVWF  28
-008E:  MOVLW  F8
+0089:  BCF    03.5
+008A:  CLRF   28
+008B:  CLRF   29
+008C:  MOVLW  01
+008D:  MOVWF  2A
+008E:  MOVLW  01
 008F:  MOVWF  2B
-0090:  MOVLW  F5
-0091:  MOVWF  2A
-0092:  MOVLW  F9
-0093:  MOVWF  2D
-0094:  MOVLW  5A
-0095:  MOVWF  2C
-0096:  MOVLW  F9
-0097:  MOVWF  2F
-0098:  MOVLW  BA
-0099:  MOVWF  2E
-009A:  MOVLW  FA
-009B:  MOVWF  31
-009C:  MOVLW  14
-009D:  MOVWF  30
-009E:  MOVLW  FA
-009F:  MOVWF  33
-00A0:  MOVLW  69
-00A1:  MOVWF  32
-00A2:  MOVLW  FA
-00A3:  MOVWF  35
-00A4:  MOVLW  B9
-00A5:  MOVWF  34
-00A6:  MOVLW  FB
-00A7:  MOVWF  37
-00A8:  MOVLW  05
-00A9:  MOVWF  36
-00AA:  MOVLW  FB
-00AB:  MOVWF  39
-00AC:  MOVLW  4C
-00AD:  MOVWF  38
-00AE:  MOVLW  FB
-00AF:  MOVWF  3B
-00B0:  MOVLW  90
-00B1:  MOVWF  3A
-00B2:  MOVLW  FC
-00B3:  MOVWF  3D
-00B4:  MOVLW  0C
-00B5:  MOVWF  3C
-00B6:  MOVLW  FC
-00B7:  MOVWF  3F
-00B8:  MOVLW  0C
-00B9:  MOVWF  3E
-00BA:  CLRF   40
-00BB:  CLRF   41
-00BC:  CLRF   42
-00BD:  MOVLW  01
-00BE:  MOVWF  43
-00BF:  MOVLW  01
-00C0:  MOVWF  44
-00C1:  BSF    03.5
-00C2:  BSF    03.6
-00C3:  MOVF   09,W
-00C4:  ANDLW  C0
-00C5:  MOVWF  09
-00C6:  BCF    03.6
-00C7:  BCF    1F.4
-00C8:  BCF    1F.5
-00C9:  MOVLW  00
-00CA:  BSF    03.6
-00CB:  MOVWF  08
-00CC:  BCF    03.5
-00CD:  CLRF   07
-00CE:  CLRF   08
-00CF:  CLRF   09
-00D0:  BCF    03.7
-....................     setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
-00D1:  MOVLW  35
-00D2:  BCF    03.6
-00D3:  MOVWF  10
+0090:  BSF    03.5
+0091:  BSF    03.6
+0092:  MOVF   09,W
+0093:  ANDLW  C0
+0094:  MOVWF  09
+0095:  BCF    03.6
+0096:  BCF    1F.4
+0097:  BCF    1F.5
+0098:  MOVLW  00
+0099:  BSF    03.6
+009A:  MOVWF  08
+009B:  BCF    03.5
+009C:  CLRF   07
+009D:  CLRF   08
+009E:  CLRF   09
+009F:  BCF    03.7
+....................    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
+00A0:  MOVLW  35
+00A1:  BCF    03.6
+00A2:  MOVWF  10
 ....................    set_timer1(65036);  
-00D4:  CLRF   0E
-00D5:  MOVLW  FE
-00D6:  MOVWF  0F
-00D7:  MOVLW  0C
-00D8:  MOVWF  0E
+00A3:  CLRF   0E
+00A4:  MOVLW  FE
+00A5:  MOVWF  0F
+00A6:  MOVLW  0C
+00A7:  MOVWF  0E
 ....................    enable_interrupts(INT_TIMER1);  
-00D9:  BSF    03.5
-00DA:  BSF    0C.0
+00A8:  BSF    03.5
+00A9:  BSF    0C.0
 ....................    enable_interrupts(GLOBAL); 
-00DB:  MOVLW  C0
-00DC:  BCF    03.5
-00DD:  IORWF  0B,F
+00AA:  MOVLW  C0
+00AB:  BCF    03.5
+00AC:  IORWF  0B,F
 ....................  
-....................  //Counter = 0; 
+....................   //Counter = 0; 
 ....................   // Duty = 3; 
 ....................    While(1){ 
 ....................     
 ....................      if (!input(PIN_B7) && y==1) {  
-00DE:  BSF    03.5
-00DF:  BSF    06.7
-00E0:  BCF    03.5
-00E1:  BTFSC  06.7
-00E2:  GOTO   0FB
-00E3:  DECFSZ 43,W
-00E4:  GOTO   0FB
-....................      if(pwd==1){ pwd=2; 
-00E5:  DECFSZ 44,W
-00E6:  GOTO   0EE
-00E7:  MOVLW  02
-00E8:  MOVWF  44
-....................      output_low(PIN_B5); 
-00E9:  BSF    03.5
-00EA:  BCF    06.5
-00EB:  BCF    03.5
-00EC:  BCF    06.5
+00AD:  BSF    03.5
+00AE:  BSF    06.7
+00AF:  BCF    03.5
+00B0:  BTFSC  06.7
+00B1:  GOTO   0C8
+00B2:  DECFSZ 2A,W
+00B3:  GOTO   0C8
+....................            if(pwd==1){  
+00B4:  DECFSZ 2B,W
+00B5:  GOTO   0BD
+....................                  pwd=2; 
+00B6:  MOVLW  02
+00B7:  MOVWF  2B
+....................                  output_low(PIN_B5); 
+00B8:  BSF    03.5
+00B9:  BCF    06.5
+00BA:  BCF    03.5
+00BB:  BCF    06.5
+....................            }else{  
+00BC:  GOTO   0C3
+....................                pwd=1; 
+00BD:  MOVLW  01
+00BE:  MOVWF  2B
+....................                output_high(PIN_B5); 
+00BF:  BSF    03.5
+00C0:  BCF    06.5
+00C1:  BCF    03.5
+00C2:  BSF    06.5
+....................            } 
+....................                y=0; 
+00C3:  CLRF   2A
+....................                delay_ms(200); 
+00C4:  MOVLW  C8
+00C5:  MOVWF  2C
+00C6:  GOTO   04E
+....................      }else{ 
+00C7:  GOTO   0CA
+....................          y=1; 
+00C8:  MOVLW  01
+00C9:  MOVWF  2A
 ....................      } 
-00ED:  GOTO   0F4
-....................  else { pwd=1; 
-00EE:  MOVLW  01
-00EF:  MOVWF  44
-....................  output_high(PIN_B5); 
-00F0:  BSF    03.5
-00F1:  BCF    06.5
-00F2:  BCF    03.5
-00F3:  BSF    06.5
-....................  } 
-....................          y=0; 
-00F4:  CLRF   43
-....................          delay_ms(200); 
-00F5:  MOVLW  C8
-00F6:  BSF    03.6
-00F7:  MOVWF  10
-00F8:  BCF    03.6
-00F9:  GOTO   04E
-....................       }else y=1; 
-00FA:  GOTO   0FD
-00FB:  MOVLW  01
-00FC:  MOVWF  43
-00FD:  GOTO   0DE
-....................        
-....................       
-....................       
+00CA:  GOTO   0AD
+....................  
 ....................    } 
 .................... } 
-00FE:  SLEEP
+00CB:  SLEEP
 
 Configuration Fuses:
    Word  1: 2FC4   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG
