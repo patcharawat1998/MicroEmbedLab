@@ -1,4 +1,19 @@
->>> Warning 203 "5.3.c" Line 47(1,1): Condition always TRUE
-      Memory usage:   ROM=3%      RAM=5% - 7%
-      0 Errors,  1 Warnings.
+>>> Warning 203 "5.3.c" Line 56(1,1): Condition always TRUE
+>>> Warning 202 "5.3.c" Line 26(7,11): Variable never used:   note
+>>> Warning 202 "5.3.c" Line 27(7,8): Variable never used:   C
+>>> Warning 202 "5.3.c" Line 27(15,17): Variable never used:   CH
+>>> Warning 202 "5.3.c" Line 27(25,26): Variable never used:   D
+>>> Warning 202 "5.3.c" Line 27(34,36): Variable never used:   Eb
+>>> Warning 202 "5.3.c" Line 27(44,45): Variable never used:   E
+>>> Warning 202 "5.3.c" Line 27(53,54): Variable never used:   F
+>>> Warning 202 "5.3.c" Line 27(62,64): Variable never used:   FH
+>>> Warning 202 "5.3.c" Line 27(71,72): Variable never used:   G
+>>> Warning 202 "5.3.c" Line 27(80,82): Variable never used:   GH
+>>> Warning 202 "5.3.c" Line 27(89,90): Variable never used:   A
+>>> Warning 202 "5.3.c" Line 27(98,99): Variable never used:   B
+>>> Warning 202 "5.3.c" Line 27(106,108): Variable never used:   Bb
+>>> Warning 202 "5.3.c" Line 28(5,6): Variable never used:   i
+>>> Warning 202 "5.3.c" Line 30(5,9): Variable never used:   duty
+      Memory usage:   ROM=3%      RAM=33% - 33%
+      0 Errors,  16 Warnings.
 Build Successful.

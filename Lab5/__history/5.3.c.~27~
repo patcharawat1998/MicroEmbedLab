@@ -33,7 +33,7 @@ int pwd=1;
 #INT_TIMER1
 
 void timer1_isr(){
-  set_timer1(65036); 
+  set_timer1(63536); 
    counter++;
    
    if (counter == 19) { counter = 0;} 
@@ -46,8 +46,8 @@ void timer1_isr(){
 
 
 void main() {
-    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8);
-   set_timer1(65036); 
+    setup_timer_1(T1_INTERNAL | T1_DIV_BY_1);
+   set_timer1(63536); 
    enable_interrupts(INT_TIMER1); 
    enable_interrupts(GLOBAL);
 
@@ -57,16 +57,14 @@ void main() {
    
      if (!input(PIN_B7) && y==1) { 
      if(pwd==1){ pwd=2;
-     output_low(PIN_B5);
+     output_low(PIN_B6);
      }
  else { pwd=1;
- output_high(PIN_B5);
+ output_high(PIN_B6);
  }
          y=0;
          delay_ms(200);
       }else y=1;
-      
-     
      
    }
 }

@@ -1,48 +1,47 @@
 
-ROM used:   240/8192 (3%)
-            240/8192 (3%) including unused fragments
+ROM used:   255/8192 (3%)
+            255/8192 (3%) including unused fragments
 
             0.3 Average locations per line
-            14.1 Average locations per statement
+            8.8 Average locations per statement
 
-RAM used:   17/368 (5%) at main() level
-            27/368 (7%) worst case
+RAM used:   122/368 (33%) at main() level
+            123/368 (33%) worst case
 
-Stack used: 0 worst case (0 in main + 0 for interrupts)
+Stack used: 1 worst case (0 in main + 1 for interrupts)
 Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   62    17 100  5.3.c
+   73    29 100  5.3.c
   761     0   0  C:\Program Files (x86)\PICC\Devices\16F886.h
 ----- -----
-  823    17 Total
+  834    29 Total
 
 Page ROM  %  RAM    Vol Diff  Functions:
 ---- --- --- ---    --- ----  ----------
-0    136  57    0    188  3.6  timer1_isr
- Inline         2             @ITOF
- Inline        10             @FLT
-0     55  23    0     98  2.1  MAIN
+0     22   9    1             @delay_ms1
+0     29  11    0    179  3.1  timer1_isr
+0    155  61    0    391  5.2  MAIN
  Inline         0             @cinit1
 
 Program metrics:
     Functions               2
-    Statements              17
-    Comments                148
-    Volume (V)              354
-    Difficulty (D)          5.1
-    Effort to implement (E) 1810
-    Time to implement (T)   2 minutes
+    Statements              29
+    Comments                139
+    Volume (V)              678
+    Difficulty (D)          7.9
+    Effort to implement (E) 5384
+    Time to implement (T)   5 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   3
-    Maintainability (MI)    144
+    Cyclomatic Complexity   5
+    Maintainability (MI)    114
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
 00004-00030    45  0  
-00031-007FF   191  1808  
+00031-007FF   206  1793  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

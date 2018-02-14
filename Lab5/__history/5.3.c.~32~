@@ -65,8 +65,6 @@ void main() {
          y=0;
          delay_ms(200);
       }else y=1;
-      
-     
      
    }
 }

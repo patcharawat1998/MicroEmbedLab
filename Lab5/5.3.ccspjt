@@ -11,21 +11,21 @@ Type=4
 1=5.3.c
 
 [defines]
-buildcount=23
+buildcount=35
 
 [ProjectLog]
 Days=1
 D1=14-02-2018
-D1_L=15
+D1_L=23
 D1_L1=[28542]Started Editing.
 D1_L2=[28843]Stopped Editing.
 D1_L3=[28963]Started Editing.
 D1_L4=[30154]Stopped Editing.
 D1_L5=[30386]Started Editing.
 D1_L6=[31238]Stopped Editing.
-TotalEdit=40
+TotalEdit=64
 TotalDebug=0
-D1_E=40
+D1_E=64
 D1_D=0
 D1_L7=[31238]Project Closed.
 D1_L8=[33761]Project Opened.
@@ -36,17 +36,25 @@ D1_L12=[34154]Stopped Editing.
 D1_L13=[34210]Started Editing.
 D1_L14=[34901]Stopped Editing.
 D1_L15=[35482]Project Closed.
+D1_L16=[47159]Project Opened.
+D1_L17=[47211]Started Editing.
+D1_L18=[47546]Stopped Editing.
+D1_L19=[47642]Started Editing.
+D1_L20=[47663]Stopped Editing.
+D1_L21=[47967]Started Editing.
+D1_L22=[49606]Stopped Editing.
+D1_L23=[49623]Project Closed.
 
 [Opened Files]
-1=5.1.c
-t1=24
-2=..\Lab4\4.2\4.2.3test.c
-t2=17
+1=5.3.c
+t1=55
+2=5.2.c
+t2=27
 3=..\Lab4\4.2\4.2.2test.c
 t3=37
 4=5.3.c
 t4=37
-Count=4
+Count=2
 
 [fileformats]
 forcecoff=0

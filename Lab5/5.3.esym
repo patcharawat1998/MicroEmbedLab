@@ -1,10 +1,9 @@
-C L "MAIN" 0 23 9 "FUNCTION"
-D G "__PCM__" 0 63 ""5.074""
-D G "__DEVICE__" 0 63 "886"
-D G "__DATE__" 0 63 ""14-Feb-18""
-D G "__TIME__" 0 63 ""09:36:43""
-D G "_UNICODE" 0 63 ""?""
-D G "__EVAL" 0 63 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
+D G "__PCM__" 0 76 ""5.074""
+D G "__DEVICE__" 0 76 "886"
+D G "__DATE__" 0 76 ""14-Feb-18""
+D G "__TIME__" 0 76 ""13:41:47""
+D G "_UNICODE" 0 76 ""?""
+D G "__EVAL" 0 76 ""?"" "Standard Header file for the PIC16F886 device ////////////////"
 c L "set_tris_a" 1 3 6 "FUNCTION"
 f N "set_tris_a" 1 39 ""
 v L "value" 1 39 "int8" `55 
@@ -1092,16 +1091,32 @@ d G "INT_RB4" 1 755 "0x1100B08"
 d G "INT_RB5" 1 756 "0x1200B08"
 d G "INT_RB6" 1 757 "0x1400B08"
 d G "INT_RB7" 1 758 "0x1800B08"
-C L "jump_to_isr" 0 23 1 "FUNCTION"
-V G "counter" 0 25 "int8" `600 
-V G "duty" 0 26 "float" `601 
-F N "timer1_isr" 0 28 ""
-F G "timer1_isr" 0 28 "void()" `602 
-C L "timer1_isr" 0 23 1 "FUNCTION"
-F N "MAIN" 0 37 ""
-F G "MAIN" 0 37 "void()" `608 
-C L "MAIN" 0 23 1 "FUNCTION"
-C L "MAIN" 0 23 1 "FUNCTION"
+D G "SLAVE_ADDRESS" 0 20 "0xB0"
+C L "jump_to_isr" 0 21 1 "FUNCTION"
+V G "note" 0 26 "int16[40]" `605 
+V G "C" 0 27 "int16" `606 
+V G "CH" 0 27 "int16" `607 
+V G "D" 0 27 "int16" `608 
+V G "Eb" 0 27 "int16" `609 
+V G "E" 0 27 "int16" `610 
+V G "F" 0 27 "int16" `611 
+V G "FH" 0 27 "int16" `612 
+V G "G" 0 27 "int16" `613 
+V G "GH" 0 27 "int16" `614 
+V G "A" 0 27 "int16" `615 
+V G "B" 0 27 "int16" `616 
+V G "Bb" 0 27 "int16" `617 
+V G "i" 0 28 "int8" `618 
+V G "counter" 0 29 "int8" `619 
+V G "duty" 0 30 "int8" `620 
+V G "y" 0 31 "int8" `621 
+V G "pwd" 0 32 "int8" `622 
+F N "timer1_isr" 0 35 ""
+F G "timer1_isr" 0 35 "void()" `623 
+C L "timer1_isr" 0 21 1 "FUNCTION"
+F N "MAIN" 0 48 ""
+F G "MAIN" 0 48 "void()" `624 
+C L "MAIN" 0 21 2 "FUNCTION"
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep_ulpwu" 1 0
@@ -1236,3 +1251,11 @@ F B "gets" 1 3
 F B "kbhit" 0 1
 F B "set_uart_speed" 1 3
 F B "setup_uart" 1 3
+F B "i2c_read" 0 2
+F B "i2c_write" 1 2
+F B "i2c_start" 0 2
+F B "i2c_stop" 0 1
+F B "i2c_isr_state" 0 1
+F B "i2c_init" 1 2
+F B "i2c_poll" 0 1
+F B "i2c_speed" 1 2

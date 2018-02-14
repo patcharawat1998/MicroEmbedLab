@@ -1,6 +1,5 @@
 ÀÄ5
-   ÃÄMAIN  0/55  Ram=0
-   ³  ÀÄ@cinit1  (Inline)  Ram=0
-   ÀÄtimer1_isr  0/136  Ram=0
-      ÃÄ@ITOF  (Inline)  Ram=2
-      ÀÄ@FLT  (Inline)  Ram=10
+   ÃÄMAIN  0/155  Ram=0
+   ³  ÃÄ@cinit1  (Inline)  Ram=0
+   ³  ÀÄ@delay_ms1  0/22  Ram=1
+   ÀÄtimer1_isr  0/29  Ram=0
