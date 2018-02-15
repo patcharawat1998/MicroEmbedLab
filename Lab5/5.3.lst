@@ -1,18 +1,18 @@
-CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
+CCS PCM C Compiler, Version 5.074, 32906               15-Feb-18 13:58
 
                Filename:   D:\GitHub\MicroEmbedLab\Lab5\5.3.lst
 
-               ROM used:   204 words (2%)
+               ROM used:   209 words (3%)
                            Largest free fragment is 2048
-               RAM used:   17 (5%) at main() level
-                           18 (5%) worst case
+               RAM used:   18 (5%) at main() level
+                           19 (5%) worst case
                Stack used: 1 locations (0 in main + 1 for interrupts)
                Stack size: 8
 
 *
 0000:  MOVLW  00
 0001:  MOVWF  0A
-0002:  GOTO   064
+0002:  GOTO   062
 0003:  NOP
 0004:  MOVWF  7F
 0005:  SWAPF  03,W
@@ -93,7 +93,7 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
 ....................  
 .................... #use delay(clock=8M) 
 *
-004E:  MOVLW  2C
+004E:  MOVLW  2D
 004F:  MOVWF  04
 0050:  BCF    03.7
 0051:  MOVF   00,W
@@ -112,9 +112,7 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
 005E:  GOTO   05D
 005F:  DECFSZ 00,F
 0060:  GOTO   054
-0061:  BCF    0A.3
-0062:  BCF    0A.4
-0063:  GOTO   0C7 (RETURN)
+0061:  RETURN
 .................... #define SLAVE_ADDRESS  0xB0 
 .................... //#define SLAVE_ADDRESS  0xD0 
 ....................  
@@ -144,10 +142,12 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
 0038:  SUBLW  13
 0039:  BTFSC  03.2
 003A:  CLRF   28
-....................    if (counter == 0) { output_high(PIN_B4);}  // beginning of a new period 
+....................    if (counter == 0) {  
 003B:  MOVF   28,F
 003C:  BTFSS  03.2
 003D:  GOTO   042
+....................     
+....................    output_high(PIN_B4);}  // beginning of a new period 
 003E:  BSF    03.5
 003F:  BCF    06.4
 0040:  BCF    03.5
@@ -171,135 +171,147 @@ CCS PCM C Compiler, Version 5.074, 32906               14-Feb-18 14:34
 ....................  
 .................... void main() { 
 *
-0064:  MOVF   03,W
-0065:  ANDLW  1F
-0066:  MOVWF  03
-0067:  MOVLW  71
-0068:  BSF    03.5
-0069:  MOVWF  0F
-006A:  CLRF   10
-006B:  MOVF   0F,W
-006C:  BSF    03.6
-006D:  BCF    07.3
-006E:  MOVLW  0C
-006F:  BCF    03.6
-0070:  MOVWF  19
-0071:  MOVLW  A2
-0072:  MOVWF  18
-0073:  MOVLW  90
-0074:  BCF    03.5
-0075:  MOVWF  18
-0076:  MOVLW  FF
-0077:  MOVWF  27
-0078:  BSF    27.3
-0079:  MOVF   27,W
-007A:  BSF    03.5
-007B:  MOVWF  07
-007C:  BCF    03.5
-007D:  BSF    27.4
-007E:  MOVF   27,W
-007F:  BSF    03.5
-0080:  MOVWF  07
-0081:  MOVLW  13
-0082:  MOVWF  13
-0083:  MOVLW  28
-0084:  BCF    03.5
-0085:  MOVWF  14
-0086:  BSF    03.5
-0087:  BSF    14.7
-0088:  BCF    14.6
-0089:  BCF    03.5
-008A:  CLRF   28
-008B:  CLRF   29
+0062:  MOVF   03,W
+0063:  ANDLW  1F
+0064:  MOVWF  03
+0065:  MOVLW  71
+0066:  BSF    03.5
+0067:  MOVWF  0F
+0068:  CLRF   10
+0069:  MOVF   0F,W
+006A:  BSF    03.6
+006B:  BCF    07.3
+006C:  MOVLW  0C
+006D:  BCF    03.6
+006E:  MOVWF  19
+006F:  MOVLW  A2
+0070:  MOVWF  18
+0071:  MOVLW  90
+0072:  BCF    03.5
+0073:  MOVWF  18
+0074:  MOVLW  FF
+0075:  MOVWF  27
+0076:  BSF    27.3
+0077:  MOVF   27,W
+0078:  BSF    03.5
+0079:  MOVWF  07
+007A:  BCF    03.5
+007B:  BSF    27.4
+007C:  MOVF   27,W
+007D:  BSF    03.5
+007E:  MOVWF  07
+007F:  MOVLW  13
+0080:  MOVWF  13
+0081:  MOVLW  28
+0082:  BCF    03.5
+0083:  MOVWF  14
+0084:  BSF    03.5
+0085:  BSF    14.7
+0086:  BCF    14.6
+0087:  BCF    03.5
+0088:  CLRF   28
+0089:  CLRF   29
+008A:  MOVLW  01
+008B:  MOVWF  2A
 008C:  MOVLW  01
-008D:  MOVWF  2A
-008E:  MOVLW  01
-008F:  MOVWF  2B
-0090:  BSF    03.5
-0091:  BSF    03.6
-0092:  MOVF   09,W
-0093:  ANDLW  C0
-0094:  MOVWF  09
-0095:  BCF    03.6
-0096:  BCF    1F.4
-0097:  BCF    1F.5
-0098:  MOVLW  00
-0099:  BSF    03.6
-009A:  MOVWF  08
-009B:  BCF    03.5
-009C:  CLRF   07
-009D:  CLRF   08
-009E:  CLRF   09
-009F:  BCF    03.7
+008D:  MOVWF  2B
+008E:  BSF    03.5
+008F:  BSF    03.6
+0090:  MOVF   09,W
+0091:  ANDLW  C0
+0092:  MOVWF  09
+0093:  BCF    03.6
+0094:  BCF    1F.4
+0095:  BCF    1F.5
+0096:  MOVLW  00
+0097:  BSF    03.6
+0098:  MOVWF  08
+0099:  BCF    03.5
+009A:  CLRF   07
+009B:  CLRF   08
+009C:  CLRF   09
+009D:  BCF    03.7
 ....................    setup_timer_1(T1_INTERNAL | T1_DIV_BY_8); 
-00A0:  MOVLW  35
-00A1:  BCF    03.6
-00A2:  MOVWF  10
+009E:  MOVLW  35
+009F:  BCF    03.6
+00A0:  MOVWF  10
 ....................    set_timer1(65036);  
-00A3:  CLRF   0E
-00A4:  MOVLW  FE
-00A5:  MOVWF  0F
-00A6:  MOVLW  0C
-00A7:  MOVWF  0E
+00A1:  CLRF   0E
+00A2:  MOVLW  FE
+00A3:  MOVWF  0F
+00A4:  MOVLW  0C
+00A5:  MOVWF  0E
 ....................    enable_interrupts(INT_TIMER1);  
-00A8:  BSF    03.5
-00A9:  BSF    0C.0
+00A6:  BSF    03.5
+00A7:  BSF    0C.0
 ....................    enable_interrupts(GLOBAL); 
-00AA:  MOVLW  C0
-00AB:  BCF    03.5
-00AC:  IORWF  0B,F
+00A8:  MOVLW  C0
+00A9:  BCF    03.5
+00AA:  IORWF  0B,F
 ....................  
 ....................   //Counter = 0; 
 ....................   // Duty = 3; 
 ....................    While(1){ 
 ....................     
-....................      if (!input(PIN_B7) && y==1) {  
-00AD:  BSF    03.5
-00AE:  BSF    06.7
-00AF:  BCF    03.5
-00B0:  BTFSC  06.7
-00B1:  GOTO   0C8
-00B2:  DECFSZ 2A,W
-00B3:  GOTO   0C8
-....................            if(pwd==1){  
-00B4:  DECFSZ 2B,W
-00B5:  GOTO   0BD
+....................      if (!input(PIN_B7) && y==1) { 
+00AB:  BSF    03.5
+00AC:  BSF    06.7
+00AD:  BCF    03.5
+00AE:  BTFSC  06.7
+00AF:  GOTO   0CD
+00B0:  DECFSZ 2A,W
+00B1:  GOTO   0CD
+....................      output_high(PIN_B5); 
+00B2:  BSF    03.5
+00B3:  BCF    06.5
+00B4:  BCF    03.5
+00B5:  BSF    06.5
+....................      delay_ms(1000); 
+00B6:  MOVLW  04
+00B7:  MOVWF  2C
+00B8:  MOVLW  FA
+00B9:  MOVWF  2D
+00BA:  CALL   04E
+00BB:  DECFSZ 2C,F
+00BC:  GOTO   0B8
+....................            if(pwd==1){             
+00BD:  DECFSZ 2B,W
+00BE:  GOTO   0C6
 ....................                  pwd=2; 
-00B6:  MOVLW  02
-00B7:  MOVWF  2B
+00BF:  MOVLW  02
+00C0:  MOVWF  2B
+....................                  
 ....................                  output_low(PIN_B5); 
-00B8:  BSF    03.5
-00B9:  BCF    06.5
-00BA:  BCF    03.5
-00BB:  BCF    06.5
+00C1:  BSF    03.5
+00C2:  BCF    06.5
+00C3:  BCF    03.5
+00C4:  BCF    06.5
+....................                   
+....................                   
 ....................            }else{  
-00BC:  GOTO   0C3
+00C5:  GOTO   0C8
 ....................                pwd=1; 
-00BD:  MOVLW  01
-00BE:  MOVWF  2B
-....................                output_high(PIN_B5); 
-00BF:  BSF    03.5
-00C0:  BCF    06.5
-00C1:  BCF    03.5
-00C2:  BSF    06.5
+00C6:  MOVLW  01
+00C7:  MOVWF  2B
+....................                //output_high(PIN_B5);      
 ....................            } 
 ....................                y=0; 
-00C3:  CLRF   2A
+00C8:  CLRF   2A
 ....................                delay_ms(200); 
-00C4:  MOVLW  C8
-00C5:  MOVWF  2C
-00C6:  GOTO   04E
+00C9:  MOVLW  C8
+00CA:  MOVWF  2D
+00CB:  CALL   04E
 ....................      }else{ 
-00C7:  GOTO   0CA
+00CC:  GOTO   0CF
 ....................          y=1; 
-00C8:  MOVLW  01
-00C9:  MOVWF  2A
+00CD:  MOVLW  01
+00CE:  MOVWF  2A
 ....................      } 
-00CA:  GOTO   0AD
+00CF:  GOTO   0AB
 ....................  
 ....................    } 
 .................... } 
-00CB:  SLEEP
+00D0:  SLEEP
 
 Configuration Fuses:
    Word  1: 2FC4   INTRC_IO NOWDT PUT NOMCLR NOPROTECT NOCPD BROWNOUT IESO FCMEN NOLVP NODEBUG

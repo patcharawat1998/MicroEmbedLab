@@ -18,7 +18,8 @@
 029     duty
 02A     y
 02B     pwd
-02C     @delay_ms1.P1
+02C     MAIN.@SCRATCH1
+02D     @delay_ms1.P1
 077     @SCRATCH
 078     @SCRATCH
 078     _RETURN_
@@ -96,21 +97,21 @@ FFF     @INTERRUPT_AREA
 ROM Allocation:
 000031  timer1_isr
 00004E  @delay_ms1
-000064  MAIN
-000064  @cinit1
-00009F  @cinit2
+000062  MAIN
+000062  @cinit1
+00009D  @cinit2
 
 Project Directory:
     D:\GitHub\MicroEmbedLab\Lab5\
 
 Project Files:
-    5.3.c                                                   [14-Feb-18 14:27  CRC=A33E9A33]
+    5.3.c                                                   [15-Feb-18 13:58  CRC=6C86AA92]
     C:\Program Files (x86)\PICC\Devices\16F886.h            [22-Jul-17 04:41  CRC=7107D019]
 
-Source signature=854E3A65
+Source signature=4E964AC4
 Program memory checksum=0000
 Program memory CRC=0000
-Hex file CRC=3B4C
+Hex file CRC=12CB
 
 Units:
     5.3 (main)

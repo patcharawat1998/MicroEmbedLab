@@ -34,10 +34,8 @@ void timer1_isr(){
   set_timer1(65036); 
    counter++;
    
-   if (counter == 19) { counter = 0;} 
-   if (counter == 0) { 
-   
-   output_high(PIN_B4);}  // beginning of a new period
+   if (counter == 20) { counter = 0;} 
+   if (counter == 0) { output_high(PIN_B4);}  // beginning of a new period
    if (counter == pwd) {output_low(PIN_B4);}  
 }
 
@@ -53,21 +51,16 @@ void main() {
   // Duty = 3;
    While(1){
    
-     if (!input(PIN_B7) && y==1) {
-     output_high(PIN_B5);
-     delay_ms(1000);
-           if(pwd==1){            
+     if (!input(PIN_B7) && y==1) { 
+           if(pwd==1){ 
                  pwd=2;
-                
                  output_low(PIN_B5);
-                 
-                 
            }else{ 
                pwd=1;
-               //output_high(PIN_B5);     
+               output_high(PIN_B5);
            }
                y=0;
-               delay_ms(200);
+               //delay_ms(200);
      }else{
          y=1;
      }

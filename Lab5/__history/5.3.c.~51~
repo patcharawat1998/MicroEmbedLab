@@ -58,9 +58,9 @@ void main() {
      delay_ms(1000);
            if(pwd==1){            
                  pwd=2;
-                
+                 if(!input(PIN_B7)){
                  output_low(PIN_B5);
-                 
+                 }
                  
            }else{ 
                pwd=1;
